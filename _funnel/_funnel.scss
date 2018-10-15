@@ -1,0 +1,1169 @@
+/**
+ * ------------------------
+ *
+ *     CSS Name: STYLE.CSS
+ *  Description: 
+ * 
+ * --------------------------
+ */
+
+
+/*------------------------------------
+    ROOT WRAPPER
+------------------------------------*/
+
+@at-root html, body, .cgg-comparison-widget, .telco-content-widget {
+
+    @include mobile {
+        height: 100%    
+    }    
+}
+
+&.telco-widget {
+
+    background: map-get( $color, white-dirty );
+    height: 100%;
+
+    @include desktop {
+        height: auto;
+        min-height: 100%;    
+    }
+}
+
+.cgg-collector-widget-content {
+    @include mobile {
+        position: absolute;
+        top: 60px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: auto;
+    }
+}
+
+.funnel-container {
+    height: 100%;
+
+    @include desktop {
+        height: auto;
+        min-height: 100%;
+
+    }   
+
+    @include mobile {
+        padding-right: 0;
+        padding-left: 0;  
+    }
+}
+
+.funnel-questions-container { 
+
+    margin:40px auto 0;
+    float: none;
+
+
+
+    @media screen and (max-width: 991px) {
+        width:100%;
+        padding-left:  0;
+        padding-right: 0;
+    }
+
+    @include mobile {     
+        margin-top:20px;
+        padding-left:  0px;
+        padding-right: 0px;
+    }
+
+    @include iphone5s {
+        margin-top: 0px;
+    }
+
+}
+
+.funnel-questions { 
+
+    margin-top:    40px;
+    margin-bottom: 40px;
+    max-width: 100%;
+
+    @include mobile {
+        &{ 
+            margin-top:    0px;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+.funnel-questions .inside-full-height br { 
+
+    @include mobile {
+        display: none;
+    }
+}
+
+
+// IE8 fix: don't use :not()
+.funnel-questions .funnel-question {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+
+} 
+
+
+.funnel-questions .form-widget--title { 
+    font-weight: bold;
+    @include font-size( 20px );
+    color: #056f9d;
+
+    @include mobile {
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+}
+
+.form-widget--left { 
+
+    @include mobile {
+        padding-left:  0;
+        padding-right: 0;
+    }
+}
+
+
+/*------------------------------------
+    MASTHEAD 
+------------------------------------*/
+
+.masthead .masthead__logo--funnel {
+    height: 60px;
+    margin: -10px;
+    @include desktop {
+        margin: -5px;
+    }
+}
+
+.masthead .masthead__logo--funnel .icon__arrow-back {
+    height: inherit;
+    padding: 10px 15px 6px;
+    margin-right: 5px;
+    border-right: 1px solid map-get( $color, dodger-blue__dark-1 );
+
+    @include desktop {
+        display: none !important;
+    }
+}
+
+.masthead .masthead__logo--funnel .icon__arrow-back i {    
+    @include font-size( 32px );
+    color: map-get( $color, white );
+}
+
+
+/*------------------------------------
+    TOOL TIP
+------------------------------------*/
+.libris-notification-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-top-width: 0;
+    border-bottom-color: #f8f699;
+    border-width: 10px;
+    top: 10px;
+    z-index: -1;
+    border-right-width: 7px;
+    right: 0;
+}
+
+.libris-notification {
+    background: map-get( $color, yellow-light );
+    padding: 1em;
+    margin-bottom: 10px;
+    margin-top: 8px;
+    font-size: 0.9em;
+}
+
+
+
+
+
+
+/*------------------------------------
+    FORMS AND BUTTONS
+------------------------------------*/
+
+.form-widget--fields {
+
+    margin:10px 0;
+    @extend .clearfix;
+    font-weight: 600;    
+    color: #312f2e;
+    position: relative;
+
+    @include font-size( 14px );
+
+    @include mobile {
+        margin: 0;
+
+        &:first-child {
+            margin-top: 15px;
+        }
+
+        &:last-child {
+            margin-bottom: 10px;
+            
+            @include iphone5s {
+                margin-bottom: 30px;
+            }
+        }
+    }
+}
+
+.form-widget--fields label {
+    display: inline;
+}
+
+
+
+.input-help a {
+
+
+    font-weight: 600;
+    @include font-size( 15px );
+    margin-left: 8px;
+    @include vendor-prefixed( transition, color 300ms ease-in-out);
+
+    &, &:hover {
+        color: map-get( $color, green-dark );    
+    }
+
+}
+
+.provider-step .form-widget--fields .input-help {
+    padding: 0;
+    text-align: right;
+}
+
+.provider-step .form-widget--fields label {
+    padding: 0;
+}
+
+/*.form-widget--fields .input-help a:hover {
+    color: #097099;
+}*/
+
+.input-help a .libris-notification-arrow {
+    z-index: -1;    
+
+    @include desktop {
+        z-index: 1;    
+    }    
+}
+
+
+.input-help a.collapsed .libris-notification-arrow {
+    z-index: -1;
+}
+
+.form-widget--fields .m-cgg-icon--lock::before {
+    position: relative;
+    top: 1px;
+}
+
+.back-skip-row {
+    margin-top: 15px;
+}
+
+.collapseNotification .libris-notification{
+    margin-top: 0;
+}
+
+.input-secure-tip {
+    font-size: 14px;
+    position: absolute;
+    right: 0;
+    top: 5px;
+
+    @include mobile {
+        display: none;
+    }
+}
+
+.input-help {
+    position: relative;
+    top: 1px;
+}
+
+
+.btn-radio {
+
+    margin: 0;
+    cursor: pointer;
+    display: block;
+    width:  100%;
+    height: 100%;
+    text-align: center;	
+    color: map-get( $color, gray-dark );
+
+    @include font-size( 12px );
+
+    .cgg-collector-widget.desktop &:hover .btn-radio {
+        color: map-get( $color, white );
+    }
+
+    @include mobile {
+        text-align: left;
+    }
+
+}
+.btn-radio .display-table {
+    height: 100%;
+    width:  100%;
+
+    @include mobile {
+        display: block;
+    }
+}
+
+.btn-radio .display-table .display-cell {
+    vertical-align: middle;
+}
+
+.funnel-action-view .form-actions .row {
+    margin: 0;
+}
+
+/*------------------------------------
+    BOX CONTAINERS
+------------------------------------*/
+.box-container--white {
+
+    padding: 15px;
+
+    background-color: map-get( $color, white );
+    color: map-get( $color,  black-light );
+
+    @include vendor-prefixed( box-shadow, 5px 5px 0 1px map-get( $color,  gray-light-2 ) );
+
+
+}
+
+.box-container--splitter {
+
+    margin: 0 -15px 15px;
+    padding: 15px;
+
+    border-bottom: 1px solid  map-get( $color,  gray-light-2 );;
+
+}
+
+.box-container--white .box-container--title {
+
+    margin: 0;
+    color: inherit;
+    font-weight: bold;
+
+    @include font-size( 14.5px );
+
+}
+
+.box-container--white .form-widget--user-details {
+
+    @include font-size( 11px );
+    line-height: 160%;
+
+    color: map-get( $color,  gray-light );
+}
+
+
+.price-guarantee .box-container--padding-top{
+    padding-top: 0;
+}
+
+.price-guarantee .filter-details--providers .providers-container .padding-left {
+    height: 40px;
+}
+
+.box-container--white .form-widget--user-details strong {
+    color: map-get( $color,  black-light );
+}
+
+.box-container--white .form-widget--user-details .cgg-row{
+    margin-bottom: 6px;
+}
+
+.box-container--white .form-widget--user-details .form-widget--user-details-link{
+    cursor: pointer;
+
+    &:focus, &:hover {
+        color: map-get( $color, green-dark );
+    }
+}
+
+.box-container--white .form-widget--user-details .form-widget--user-details-link {
+    cursor: pointer;
+    position: relative;
+
+    &:focus, &:hover {
+        color: map-get( $color, green-dark );
+    }
+}
+
+.box-container--white .form-widget--user-details .form-widget--user-details-link i {
+    position: absolute;
+    top:  0;
+    left: 14px;
+}
+
+.box-container--white .form-widget--user-details .form-widget--user-details-link span {
+    padding-left: 20px;
+    display: block;
+}
+
+
+
+/*-------------------------------------------
+    BOX CONTAINERS CUSTOMER SUPPORT DETAILS
+---------------------------------------------*/
+.price-guarantee {
+
+    margin: 30px auto;
+
+}
+
+.price-guarantee .box-container--title span{
+    font-weight: normal;
+}
+
+.price-guarantee .box-container--splitter {
+    padding-right: 0;
+}
+
+.price-guarantee p{
+    margin-top: 15px;
+    @include font-size( 12px );
+    line-height: 130%;
+}
+.customer-support--phone {
+    display: table;
+
+
+    &, &:hover, &:focus{
+        color: map-get( $color,  green-dark );
+    }
+
+
+}
+
+/* UL LISTS */
+.price-guarantee ul.customer-support--lists {
+    margin:  15px 0 0;
+    padding: 0;
+}
+.price-guarantee ul.customer-support--lists li {
+    margin:  0 0 6px;
+    padding: 0;
+    list-style-type: none;
+    display: table;
+}
+.price-guarantee ul.customer-support--lists li i,
+.price-guarantee ul.customer-support--lists li span{
+    display: table-cell;
+    vertical-align: top;
+}
+
+.price-guarantee ul.customer-support--lists li span{
+
+    padding-left: 6px;
+
+    @include font-size( 11px );
+}
+
+.customer-support--phone span,
+.customer-support--phone .shape-circle {
+
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.customer-support--phone .shape-circle i{
+
+    @include font-size( 10px );
+
+}
+
+.customer-support--phone .shape-circle {
+
+    background-color: map-get( $color,  green-dark );
+
+    width:  26px;
+    height: 26px;
+
+    & .m-cgg,
+    & .m-cgg:before {
+
+        display: block;
+        width: inherit;
+
+        color: map-get( $color,  white );
+    }
+
+}
+
+.customer-support--phone span {
+    padding-left: 4px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+}
+
+.btn-container--white {
+    /* padding-left:     0;
+    padding-right: 10px; */
+    border: none;
+    display: block;
+
+    @include desktop {
+        border: 1px solid map-get( $color, gray-light-1 );
+        display: table-cell;
+        padding: 10px;        
+
+    }
+
+    @include mobile {
+        background: none;
+        cursor: default;
+        padding: 0;
+
+        &:hover {
+            background-color: transparent;
+            box-shadow: transparent;
+            background-color: transparent;
+        }
+
+        &.has-selected {
+            background: 0;
+            border: none;
+            @include vendor-prefixed( box-shadow, none );
+        }
+    }
+
+}
+/* 
+.btn-container--white:first-child {
+    left: -10px;
+}
+
+.btn-container--white:last-child {
+    right: -10px;
+} */
+
+.btn-link--show-results {
+    @include mobile {
+        margin-bottom: 10px;
+        background-color: map-get( $color, white-dirty );
+    }
+}
+
+.btn-link--back i,
+.btn-link--show-results i {
+    position: relative;
+    top: 1px;
+}
+
+.btn-link--show-results i {
+    left: 0;
+    @include vendor-prefixed( transition, left 300ms ease-in-out);
+}
+
+.btn-link--show-results:hover i {
+    left: 3px;
+}
+
+/*-------------------------------------------
+    FUNNEL QUESTIONS CONTAINER
+---------------------------------------------*/
+
+/* HOW MANY USERS */
+/* .bb-how-many-users--part-1 .btn-container--white {
+
+    margin: 0 0 10px;
+
+
+    @include mobile {
+
+        &:nth-child(2) {
+            padding-right: 0;
+        }
+
+    }
+
+
+} */
+
+/* HOUSEHOLD INTERNET USE*/
+/* .bb-how-many-users--part-2 .btn-container--white {
+
+    margin: 0 0 10px;
+
+    &:nth-child(3) {
+        padding-right: 0;
+    }
+
+    @media screen and (max-width: 991px) {
+
+        & {
+            padding-right: 0;
+        }
+
+    }
+
+
+}
+*/
+/*BROADBAND USAGE */
+.btn-container--white {
+
+    margin-bottom: 10px;
+
+    @include desktop {
+        & {
+            margin-bottom: 0;
+        }
+    }
+
+    .cgg-collector-widget.desktop &:hover .btn-radio {
+        color: map-get( $color, white );
+    }
+
+
+    /* @media screen and (max-width: 991px) {
+    
+        &:nth-child(2) {
+            padding-right: 0;
+        }
+    
+        br{
+            display: none;	
+        }
+    
+    } */
+
+}
+
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.funnel-questions-container .btn-container--white:hover .btn-radio {
+    @include mobile {
+        color: map-get( $color, gray-dark );
+    }
+}
+
+
+/* Selected */
+.btn-container--white.has-selected {
+    & .btn-radio {
+        color: map-get( $color, white );
+
+        @include mobile {
+            color: map-get( $color, gray-dark );
+        }
+    }
+}
+
+/*-------------------------------------------
+    FUNNEL HIGHLIGHTED TEXT
+---------------------------------------------*/
+.funnel-highlight-message {
+
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: map-get( $color, orange );
+    @include font-size( 18px );
+
+    @include vendor-prefixed( opacity, 0.75 );
+
+    @extend .clearfix;
+
+}
+
+.funnel-highlight-message .funnel-highlight-message--text {
+    margin-top: 40px;
+
+    @include desktop {
+        position: relative;
+        right: -25px;
+    }
+}
+
+.funnel-highlight-message .m-cgg {
+    @include font-size( 60px );
+}
+
+
+
+
+
+
+/*-------------------------------------------
+    FUNNEL EMAIL FORM
+---------------------------------------------*/
+.funnel-email p, 
+.funnel-email label  {
+    @include font-size( 12px );
+}
+.funnel-email--form input[type="email"] {
+    background: url("../images/icons_v1.0_lock.svg") #fff;
+    background-position: right 15px bottom 12px;
+    background-repeat: no-repeat;
+    background-size: 21px;
+    outline: none;
+    width: 100%;
+    padding: 10px;
+
+    @include vendor-prefixed( border-radius, 5px );
+
+    border: 2px solid  map-get( $color, green-dark );
+
+    /* IE Hack */
+    @media all and(-ms-high-contrast:none) {
+        background: url("../images/icons_v1.0_lock.svg") #fff;
+        background-size: 21px !important;
+        background-position: 98% !important;
+        background-repeat: no-repeat;
+    }
+}
+
+.funnel-email--form .link-terms {
+    color: map-get( $color, green-dark );   
+}
+
+.funnel-email--form .link-terms:hover {
+    text-decoration: underline;
+}
+
+.form-input {
+    .error-message {
+        display: none;
+        margin: 4px 0 8px;
+    }
+
+    &.error .error-message {
+        display: block;
+        color: map-get( $color, dark-orange );
+    }
+
+    &.error input {
+        border: 2px solid  map-get( $color, dark-orange );
+
+        @include mobile {
+            border-color: map-get( $color, dark-orange );
+        }
+    }
+
+    & input[type="email"] {
+        @include mobile {
+            background: none;
+            border-color: map-get( $color, dark-green-2 );
+            border-style: solid;
+            border-width: 0 0 2px 0;
+            @include vendor-prefixed( border-radius, 0 );
+            padding: 10px 0 5px 0;
+        }
+    }
+}
+
+.funnel-email .form-widget--title {
+    @include mobile {
+        float: left;
+    }
+}
+
+.funnel-email .input-help {
+    @include mobile {
+        float: right;
+        margin-top: 10px;
+    }
+}
+
+.funnel-email .form-widget--fields label {
+    @include mobile {
+        color: map-get( $color, green-dark-2 );
+    }
+}
+
+
+/*-------------------------------------------
+    CHECKBOX DEFAULT THEMES
+---------------------------------------------*/
+.checkbox-default .input-group.checkbox:hover .checkbox-theme--black {
+    @include desktop {
+        background: #ccdfb9;
+        border: 2px solid map-get( $color, green-dark );
+    }
+}
+
+.checkbox-default .input-group.checkbox:hover .checkbox-theme--black.checked {
+    background: #76a743
+        url("//media.compargo.com/dk/carinsurance/check.png")
+        no-repeat -3px -1px;
+    border: 2px solid map-get( $color, green-dark );
+}
+
+.checkbox-default .input-group.checkbox .checkbox-theme--black.checked {
+    background: 
+        #76a743
+        url("//media.compargo.com/dk/carinsurance/check.png")
+        no-repeat -3px -1px;
+    border: 2px solid map-get( $color, green-dark );
+}
+
+.checkbox-default .checkbox-theme--black {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    margin-bottom: 0;
+    padding: 0 !important;
+    top: -2px;
+    border: 2px solid  map-get( $color, gray-light );
+
+    @include vendor-prefixed( border-radius, 2px );
+
+    @include desktop {
+        top: -7px;
+    }
+}
+
+.checkbox-default .checkbox-theme--black input[type="checkbox"] {
+    cursor: pointer;
+    @include vendor-prefixed( opacity, 0 );
+}
+
+.checkbox-default .landing--checkbox {
+    margin: 4px 0;
+}
+
+@media (max-width: 767px) {
+    .checkbox-default  .input-group input {    
+        border: 1px solid transparent;
+        box-shadow: none;
+    }
+}
+
+.landing--checkbox .checkbox-theme--black  input[type="checkbox"],
+.landing--checkbox input {
+    visibility: hidden;
+    margin-left: 0;
+    left: 0;
+    top: 0;
+}
+
+.landing--checkbox .input-group-addon {
+    padding: 5px;
+}
+.landing--checkbox .checkbox label {
+    height: 20px;
+    min-height: auto;
+    position: relative;
+    display: block;
+    width: 20px;
+}
+
+/*-------------------------------------------
+    CHECKBOX THEMES
+---------------------------------------------*/
+.input-group.checkbox {
+    cursor: pointer;
+
+    &:hover .checkbox-theme--black {
+        @include  desktop {
+            background: map-get($color, green-superlight);
+            border: 2px solid map-get($color, green-dark);
+        }
+
+        &.checked {
+            background: 
+                map-get($color, green-mint) 
+                url("//media.compargo.com/dk/carinsurance/check.png")
+                no-repeat -3px -1px;
+            border: 2px solid map-get($color, green-dark);
+        }
+    }
+
+    .checkbox-theme--black.checked {
+        background: 
+            map-get($color, green-mint) 
+            url("//media.compargo.com/dk/carinsurance/check.png")
+            no-repeat -3px -1px;
+        border: 2px solid map-get($color, green-dark);
+    }
+}
+
+.has-selected {
+
+    .input-group.checkbox:hover .checkbox-theme--black {
+        background: 
+            map-get($color, green-mint) 
+            url("//media.compargo.com/dk/carinsurance/check.png")
+            no-repeat -3px -1px;
+        border: 2px solid map-get($color, green-dark);
+    }
+
+    .checkbox-theme--black {
+        background: 
+            map-get($color, green-mint) 
+            url("//media.compargo.com/dk/carinsurance/check.png")
+            no-repeat -3px -1px;
+        border: 2px solid map-get($color, green-dark);
+    }
+
+    .btn--white {
+        background: none;
+        @include vendor-prefixed( box-shadow, none );
+    }
+}
+
+.funnel-email--form .checkbox-theme--black {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    top: 0px;
+    border: 2px solid  map-get( $color, gray-1 );
+    padding: 6px;
+
+    @include vendor-prefixed( border-radius, 2px );
+}
+
+.funnel-email--form .checkbox-theme--black input[type="checkbox"] {
+
+    cursor: pointer;
+    @include vendor-prefixed( opacity, 0 );
+}
+
+.funnel-email--form .funnel-email--checkbox {
+    margin: 4px 0;
+}
+
+.funnel-highlight-message.row {
+    margin: 0;
+}
+
+/* Single select funnel questions need radio button designs */
+.single-select .checkbox-theme--black {
+    @include vendor-prefixed( border-radius, 20px );
+}
+
+.single-select .has-selected .checkbox-theme--black {
+    background: none;
+    position: relative;
+}
+
+.single-select .has-selected .input-group.checkbox:hover .checkbox-theme--black {
+    @include mobile {
+        background: none;
+    }
+}
+
+.single-select .checkbox-theme--black::after {
+    background: transparent;
+    content: '';
+    display: block;
+    @include vendor-prefixed( border-radius, 15px);
+    height: 0px;
+    left: 8px;
+    position: absolute;
+    top: 8px;
+    width: 0px;
+    @include vendor-prefixed( transition, all 300ms ease-in-out);
+}
+
+.single-select .has-selected .checkbox-theme--black::after {
+    background: map-get( $color, green-mint );
+    height: 12px;
+    left: 2px;
+    top: 2px;
+    width: 12px;
+}
+
+.single-select .btn-radio .checkbox-cell {
+    height: 20px;
+    width: 20px;
+}
+
+.shake-checkbox {
+    @include vendor-prefixed( animation, shake 300ms ease-in-out);
+}
+
+
+/*-------------------------------------------
+    CHECKBOX THEMES
+---------------------------------------------*/
+.funnel-questions .btn-radio .m-cgg {
+    @include font-size( 40px );   
+}
+
+.row-height {
+    border-spacing: 10px 0;
+    border-collapse: separate;
+}
+
+.form-widget--row {
+
+    display: block;
+
+
+    @include desktop {
+        & {
+            display: table-row;        
+        }
+    }
+
+
+
+}
+
+.row-height {
+
+    @include desktop {
+
+        & {
+            width: calc(100% + 20px);
+            margin-left: -10px;
+
+        }
+    }
+}
+
+
+/*-------------------------------------------
+    RADIO DEFAULT THEMES
+---------------------------------------------*/
+.radio-default .input-group.radio-input .radio-theme--green {
+    &::before {
+        content: '';
+        display: inline-block;
+        width: 0px;
+        height: 0px;
+        @include vendor-prefixed( border-radius, 10px );
+        background-color: transparent;
+        position: absolute;
+        top:    0;
+        bottom: 0;
+        right:  0;
+        left:   0;
+        margin: auto;
+        @include vendor-prefixed( transition, all 300ms ease-in-out );
+    }
+}
+
+.radio-default .input-group.radio-input:hover .radio-theme--green {
+    background: transparent;
+    border: 2px solid map-get( $color, green-dark );
+    @include vendor-prefixed( border-radius, 10px );
+}
+
+.has-selected .radio-default .input-group.radio-input:hover .radio-theme--green {
+    background: transparent;
+    border: 2px solid map-get( $color, green-dark );
+    @include vendor-prefixed( border-radius, 10px );
+}
+
+.has-selected .radio-default .input-group.radio-input .radio-theme--green {
+    background: transparent;
+    border: 2px solid map-get( $color, green-dark );
+    position: relative;
+
+
+    &::before {
+        background-color: map-get( $color, green-dark );
+        height: 12px;
+        left: 0;
+        top: 0;
+        width: 12px;
+    }
+}
+
+
+
+.radio-default .radio-theme--green {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    margin-bottom: 0;
+    padding: 0 !important;
+    top: -2px;
+    border: 2px solid map-get( $color, gray-1 );
+
+    @include vendor-prefixed( border-radius, 10px );
+}
+
+@media (min-width: 768px) {
+    .radio-default .radio-theme--green {
+        top: -7px;
+    }
+}
+
+.radio-default .radio-theme--green input[type="radio"] {
+    cursor: pointer;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    -ms-opacity: 0;
+    -o-opacity: 0;
+    opacity: 0;
+}
+
+.radio-default .landing--radio {
+    margin: 4px 0;
+}
+
+@media (max-width: 767px) {
+    .radio-default  .input-group input {    
+        border: 1px solid transparent;
+        box-shadow: none;
+    }
+}
+
+.landing--radio .radio-theme--green  input[type="radio"],
+.landing--radio input {
+    visibility: hidden;
+    margin-left: 0;
+    left: 0;
+    top: 0;
+}
+
+.landing--radio .input-group-addon {
+    padding: 5px;
+}
+.landing--radio .radio-input label {
+    height: 20px;
+    min-height: auto;
+    position: relative;
+    display: block;
+    width: 20px;
+}
+
+.long-tnc-text {
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 18px;
+    padding-left: 30px;
+}
+
+.long-tnc-text .input-group-addon{
+    position:absolute;
+    left:0;
+}

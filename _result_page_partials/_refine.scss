@@ -1,0 +1,914 @@
+/*-------------------------------------------------------------------------------
+    TITLE:			REFINE (RESULTS PAGE) 
+        DESCRIPTION:	This will be shared by anyone who uses the result template
+    [1] GLOBAL
+        [2] HEADER 
+                [2.1] HEADER DESKTOP
+                [2.2] HEADER MOBILE
+
+        [3] BODY REFINE
+---------------------------------------------------------------------------------*/
+
+
+@import "../_partials/_switch-toggle.scss";
+@import "../_partials/_range-slider-js.scss";
+
+/*------------------------------------
+    [1] GLOBAL
+------------------------------------*/
+
+.cgg-comparison-widget-refine {
+    /* iOS Overflow Bug Fix*/
+    height: calc(100% + 1px);
+    -webkit-overflow-scrolling: touch;
+}
+
+.refine-container select {
+    width: 100%;
+}
+
+.refine-container {
+
+    @include desktop {
+        background-color: map-get( $color, white );        
+        /*     width: 17%;
+            float: none;
+            display: table-cell; */
+        padding-right: 0;
+    }
+}
+
+.refine-container .refine-title {    
+
+    @include desktop {
+        & {
+
+            @include font-size( 18px );
+
+        }
+    }
+}
+
+
+/* REFINE TEXT CONTAINER */
+.refine-text-container input {
+    width: 100%;
+    padding: 0;
+    color: map-get( $color, gray-light-3 );
+    border: 0 transparent;
+    font-weight: normal;
+}
+
+.refine-text-container .range-category--container {
+    min-height: auto;
+}
+
+.refine-text-container .range-category--container label {
+    position: relative;
+}
+
+
+
+
+
+
+/*------------------------------------
+    [2] HEADER
+------------------------------------*/
+.result-header .refine-container {
+
+    @include desktop {
+        flex-basis: 17%; //FLEXBOX WORKS ONLY ON LATEST VENDOR VERSION
+        max-width: 17%;
+        width: 17%;
+
+        /* FALLBACK ON IE9 BELOW */
+        .no-js &,
+        .no-flexbox & {
+            display: table-cell;
+            vertical-align: top;
+        }
+    }
+}
+
+.result-header .refine-container .refine-title {
+
+    display: none;
+
+    @include desktop {
+        display: block;
+        padding: 10px 20px 0;
+    }
+}
+
+
+
+
+
+
+/*------------------------------------
+    [2.2] HEADER  -  MOBILE
+------------------------------------*/
+.refine-container .refine-container--mobile {
+    display: block;        
+    width: 100%;
+    border-spacing: 0;
+    padding: 10px 0 0;
+
+    @include desktop {
+
+        & {
+            display: none;    
+        }
+
+    }
+}
+
+.refine-container .refine-container--mobile .refine-container--mobile-box {
+    float: left;
+    width: auto;        
+    position: relative;
+    padding: 10px;
+    border: 1px solid map-get( $color, gray-light-3 );
+    @include vendor-prefixed( border-radius, 3px );
+    color: map-get( $color, black-light );
+    @include font-size( 12px );
+}
+
+.refine-container .refine-container--mobile .refine-container--mobile-box i {
+    float: right;
+    @include font-size( 16px );
+    color: map-get( $color, gray );
+}
+
+.refine-container .refine-container--mobile .refine--btn {
+    width: calculateCurrentScreenSize(40%, 10px);
+    margin-right: 10px;
+}
+
+.refine-container .refine-container--mobile .monthly-repayment--btn {
+    float: right;
+    width: 60%;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+
+.refine-container .refine-container--mobile .monthly-repayment--btn .select2-container {
+    width: 100% !important;
+    @include font-size( 11px );
+}
+
+.refine-container .refine-container--mobile .monthly-repayment--btn .select2-container .select2-selection {
+    background-color: transparent;
+    border: 1px solid map-get( $color, gray-light-3 );
+    @include vendor-prefixed( border-radius, 3px );
+    height: 41px;
+    padding: 10px;
+    outline: none;
+}
+
+.refine-container .refine-container--mobile .monthly-repayment--btn .select2-container .select2-selection .select2-selection__arrow {
+    display: none;
+}
+
+.refine-container .refine-container--mobile .monthly-repayment--btn .select2-container .select2-selection .select2-selection__rendered {
+    display: inline-block;
+    color: map-get( $color, black-light );
+    padding: 0;
+    line-height: $line-height-base;
+    margin-right: -18px;
+    padding-right: 15px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    @include vendor-prefixed( text-overflow, ellipsis );
+}
+
+
+
+
+
+
+
+
+
+/*------------------------------------
+    [3] RESULT BODY
+------------------------------------*/
+&.refine-mobile-open {
+    overflow: hidden;
+    height: 60px;
+
+    .header, .result-header, .provider-list-container {
+        display: none;
+    }
+}
+
+.result-body .refine-container {
+    display: none;
+    margin: 0 -15px;
+    position: fixed;
+    top: 60px;
+    width: 100%;
+    height: 100%;
+    z-index: 900;
+    overflow-y: auto;    
+
+
+    @include desktop {        
+        top: 0;
+        position: relative;
+        overflow: auto;
+        z-index: 1;
+        height: auto;
+        margin: 0;
+        display: block;
+
+        flex-basis: 17%; //FLEXBOX WORKS ONLY ON LATEST VENDOR VERSION
+        max-width: 17%;
+
+        /* FALLBACK ON IE9 BELOW */
+        .no-js &,
+        .no-flexbox & {
+            display: table-cell;
+            vertical-align: top;
+            width: 17%; /* IE9 */
+        }
+
+    }
+
+    @include mobile {
+        background-color: map-get( $color, white );
+        overflow: scroll;
+        padding-bottom: 113px;
+
+        &.active {
+            display: block;
+        }
+    }
+}
+
+.result-body .refine-container .refine-title { 
+    padding: 0 0 10px;
+    position: relative;
+}
+
+.result-body .refine-container .refine-title span {
+    margin-right: 20px;
+    color: map-get( $color, gray-dark-3 );
+
+    @include desktop {
+        color: map-get( $color, black-light );        
+    }
+
+}
+.result-body .refine-container .refine-title .input-help {
+    position: absolute;
+    right: 0;
+    top: 1px;
+    color: map-get( $color, green-mint );
+
+    &:hover,
+        &:focus {
+        color: map-get( $color, green-mint );
+        text-decoration: none;
+    }
+}
+.result-body .refine-container .m-cgg-icon--i-tooltip {
+    color: map-get( $color, green-mint );
+
+    @include font-size( 16px );
+
+    @include mobile {
+        display: none;
+    }
+}
+.result-body .refine-container .refine-by-category-accordion {
+    &:not(:last-child) {
+        border-bottom: 1px solid map-get( $color, gray-light-4 );
+    }
+}
+
+.result-body .refine-container .refine-per-category {
+    padding: 10px; 
+    width: auto; 
+    position:relative;    
+
+    background-color: map-get( $color, white );
+
+    @include desktop {
+        padding: 10px;
+    }
+
+    &:not(:last-child) {
+
+        @include desktop {
+            border-bottom: 1px solid map-get( $color, gray-light-4 );    
+        }
+
+    }
+}
+
+.result-body .refine-container .collapsable-container {
+    @include desktop {
+        border-bottom: 1px solid map-get( $color, gray-light-4 );
+    }
+}
+
+/* REFINE RESET CONTAINER */
+.result-body .refine-container .refine-reset-container {
+    padding-bottom: 10px;
+    display: table;
+    width: 100%;
+
+    @include desktop {
+        display: block;
+    }
+
+    @include mobile {
+
+        bottom: 0;
+    }
+}
+
+.result-body .refine-container .refine-reset-container a {    
+    width: calculateCurrentScreenSize(50%, 10px);
+    float: left;
+    margin-right: 10px;
+    display: table-cell;
+    padding: 10px;
+
+
+    @include mobile {
+
+
+
+        &:first-child {            
+            float: right;
+            margin-top: 0;
+            margin-right: 0;
+            height: 100%;
+            @include font-size( 14px );
+            width: 50%;
+        }            
+
+        & i {
+            display: none;
+        }
+    }
+
+
+    @include desktop {
+        display: block;
+        margin-bottom: 10px;
+        width: 100%;
+        float: none;
+    }
+
+
+}
+
+.result-body .refine-title {
+
+    font-weight: 700;
+    @include font-size( 12px );    
+
+}
+
+.result-body .refine-text--subtitle {
+    float: left;
+    color: map-get( $color, black-light );
+    @include font-size( 14px );
+    font-weight: 700;
+    width: calculateCurrentScreenSize(100%, 28px);
+
+    @include desktop {
+        @include font-size( 11px );    
+    }
+}
+
+.result-body .refine-text-initial-value {
+    @include font-size( 11px );
+    color: map-get( $color, gray-light-3 );
+    margin-bottom: 10px;
+    display: inline-block;
+    margin-left: 10px;
+
+    @include desktop {
+        display: block;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 370px ) {
+    .result-body .refine-container .refine-reset-container a,
+    .result-body .refine-container .refine-reset-container a:first-child {
+        @include font-size( 11px );
+    }
+}
+
+
+/* EACH FUNCTION  LIKE, RANGE SLIDER, SECTION2-JS, TOGGLE SWITCH */
+.range-container {padding: 10px 20px; width: inherit; position:relative;}
+.range-category--container {
+    position: relative;     
+    font-weight: normal; 
+    color: map-get( $color, gray-light-4 ); 
+
+    @include desktop {
+        min-height: 54px;     
+    }
+}
+.range-category--container label {
+    width: 100% ; 
+    position: relative; 
+    border-bottom:1px solid map-get( $color, gray-light-7 ); 
+    padding: 6px 8px; 
+    @include font-size( 12px );
+
+    @include desktop {
+        position: absolute;
+        border:1px solid #ccc; 
+        border-radius: 5px; 
+    }
+
+    @include mobile {
+        padding-left: 0;
+    }
+}
+.range-category--container label .range-output-value { 
+    width: auto; 
+    border: none;     
+    font-weight: 500;
+    color: map-get( $color, black-1 );
+
+    @include desktop {
+        color: map-get( $color, gray-light-3 );   
+    }
+
+    @include mobile {
+        @include font-size( 16px );
+        font-weight: 600;
+    }
+}
+
+.range-category--container .select-multiple { width: 100%; }
+.range-category--container .select2-search__field {width: 100% !important; }
+.range-category--container .select2-container { width: 100% !important; @include font-size( 11px ); }
+
+
+.range-category--text { 
+    color: map-get( $color, black-1 );  
+    font-weight: 500; 
+
+    @include desktop {
+        color: map-get( $color, gray-light-3 );  
+    }
+
+
+
+}
+.range-input--container { 
+    position: relative; 
+    min-height: 20px;
+    display: none;
+
+    @include desktop {
+        display: block;
+    }
+
+}
+.range-provided-value {
+    clear: both; 
+    overflow: hidden; 
+    color: map-get( $color, gray-light-3 ); 
+    @include font-size( 11px ); 
+    display: none;
+
+    @include desktop {
+        display: block;
+    }
+
+}
+.range-provided-value--min {float: left;}
+.range-provided-value--max {float: right;}
+.box-refine { border-bottom: 1px solid #ccc;}
+
+
+/*------------------------------------
+    TOOL TIP
+------------------------------------*/
+.result-body .collapseNotification {
+    margin: 0 -10px;
+}
+
+.result-body .range-slider-container .collapseNotification {
+    margin: 0 -20px -10px;
+    position: relative; 
+    z-index: 5;
+
+    @include desktop {
+        margin: 0 -10px -10px;    
+    }
+}
+.result-body .refine-container .libris-notification {
+    @include font-size( 10px );
+}
+
+.libris-notification-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-top-width: 0;
+    border-bottom-color: #f8f699;
+    border-width: 10px;
+    top: 10px;
+    z-index: -1;
+    border-right-width: 7px;
+    right: 0;
+
+}
+
+.libris-notification {
+    background: map-get( $color, yellow-light );
+    padding: 1em;
+    margin-bottom: 10px;
+    margin-top: 8px;
+    font-size: 0.9em;
+    font-weight: normal;
+}
+
+
+/* FOR MOBILE */
+.collapsable-container .refine-item-container {
+
+    @include mobile {
+        float: left;
+        margin-right: 4px;
+    }
+}
+
+.collapsable-container .refine-item-container--mobile {
+
+    @include mobile {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        border-bottom: 1px solid map-get( $color, gray-light-7 );        
+
+        &:after {
+            content:'\25bc';
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 0 10px 10px;
+            background-color: map-get( $color, white );
+            color: map-get( $color, gray-dark-3 );
+        }
+
+    }
+
+}
+
+.collapsable-container .refine-item-container--mobile .refine-item-container--mobile-wrap {
+    @include mobile {
+        width: 300%;    
+    }
+
+}
+
+
+/*-------------------------------------------
+    CHECKBOX DEFAULT THEMES
+---------------------------------------------*/
+.checkbox-default .input-group.checkbox:hover .checkbox-theme--black {
+    @include desktop {
+        background: #ccdfb9;
+        border: 2px solid #77aa43;
+    }
+}
+
+.checkbox-default .input-group.checkbox:hover .checkbox-theme--black.checked {
+    background: #76a743
+        url("//media.compargo.com/dk/carinsurance/check.png")
+        no-repeat -3px -1px;
+    border: 2px solid #77aa43;
+}
+
+.checkbox-default .input-group.checkbox .checkbox-theme--black.checked {
+    background: 
+        #76a743
+        url("//media.compargo.com/dk/carinsurance/check.png")
+        no-repeat -3px -1px;
+    border: 2px solid #77aa43;
+}
+
+.checkbox-default .checkbox-theme--black {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    margin-bottom: 0;
+    padding: 0 !important;
+    top: -2px;
+    border: 2px solid  map-get( $color, gray-light );
+
+    @include vendor-prefixed( border-radius, 2px );
+
+    @include desktop {
+        top: -7px;
+    }
+}
+
+.checkbox-default .checkbox-theme--black input[type="checkbox"] {
+    cursor: pointer;
+    @include vendor-prefixed( opacity, 0 );
+}
+
+.checkbox-default .landing--checkbox {
+    margin: 4px 0;
+}
+
+@media (max-width: 767px) {
+    .checkbox-default  .input-group input {    
+        border: 1px solid transparent;
+        box-shadow: none;
+    }
+}
+
+.landing--checkbox .checkbox-theme--black  input[type="checkbox"],
+.landing--checkbox input {
+    visibility: hidden;
+    margin-left: 0;
+    left: 0;
+    top: 0;
+}
+
+.landing--checkbox .input-group-addon {
+    padding: 5px;
+}
+.landing--checkbox .checkbox label {
+    height: 20px;
+    min-height: auto;
+    position: relative;
+    display: block;
+    width: 20px;
+}
+
+/*-------------------------------------------
+    CHECKBOX THEMES
+---------------------------------------------*/
+.input-group.checkbox {
+    cursor: pointer;
+
+    &:hover .checkbox-theme--black {
+        @include  desktop {
+            background: map-get($color, green-superlight);
+            border: 2px solid map-get($color, green-dark);
+        }
+
+        &.checked {
+            background: 
+                map-get($color, green-mint) 
+                url("//media.compargo.com/dk/carinsurance/check.png")
+                no-repeat -3px -1px;
+            border: 2px solid map-get($color, green-dark);
+        }
+    }
+
+    .checkbox-theme--black.checked {
+        background: 
+            map-get($color, green-mint) 
+            url("//media.compargo.com/dk/carinsurance/check.png")
+            no-repeat -3px -1px;
+        border: 2px solid map-get($color, green-dark);
+    }
+}
+
+.has-selected {
+
+    .input-group.checkbox:hover .checkbox-theme--black {
+        background: 
+            map-get($color, green-mint) 
+            url("//media.compargo.com/dk/carinsurance/check.png")
+            no-repeat -3px -1px;
+        border: 2px solid map-get($color, green-dark);
+    }
+
+    .checkbox-theme--black {
+        background: 
+            map-get($color, green-mint) 
+            url("//media.compargo.com/dk/carinsurance/check.png")
+            no-repeat -3px -1px;
+        border: 2px solid map-get($color, green-dark);
+    }
+
+    .btn--white {
+        background: none;
+        @include vendor-prefixed( box-shadow, none );
+    }
+}
+
+.funnel-email--form .checkbox-theme--black {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    top: 0px;
+    border: 2px solid  map-get( $color, gray-1 );
+    padding: 6px;
+
+    @include vendor-prefixed( border-radius, 2px );
+}
+
+.funnel-email--form .checkbox-theme--black input[type="checkbox"] {
+
+    cursor: pointer;
+    @include vendor-prefixed( opacity, 0 );
+}
+
+.funnel-email--form .funnel-email--checkbox {
+    margin: 4px 0;
+}
+
+.funnel-highlight-message.row {
+    margin: 0;
+}
+
+/* Single select funnel questions need radio button designs */
+.single-select .checkbox-theme--black {
+    @include vendor-prefixed( border-radius, 20px );
+}
+
+.single-select .has-selected .checkbox-theme--black {
+    background: none;
+    position: relative;
+}
+
+.single-select .has-selected .input-group.checkbox:hover .checkbox-theme--black {
+    @include mobile {
+        background: none;
+    }
+}
+
+.single-select .has-selected .checkbox-theme--black::after {
+    background: map-get( $color, green-mint );
+    content: '';
+    display: block;
+    @include vendor-prefixed( border-radius, 15px);
+    height: 12px;
+    left: 2px;
+    position: absolute;
+    top: 2px;
+    width: 12px;
+}
+
+.shake-checkbox {
+    @include vendor-prefixed( animation, shake 300ms ease-in-out);
+}
+
+
+/*-------------------------------------------
+    CHECKBOX THEMES
+---------------------------------------------*/
+.funnel-questions .btn-radio .m-cgg {
+    @include font-size( 40px );   
+}
+
+.row-height {
+    border-spacing: 10px 0;
+    border-collapse: separate;
+}
+
+.form-widget--row {
+
+    display: block;
+
+
+    @include desktop {
+        & {
+            display: table-row;        
+        }
+    }
+
+
+
+}
+
+.row-height {
+
+    @include desktop {
+
+        & {
+            width: calc(100% + 20px);
+            margin-left: -10px;
+
+        }
+    }
+}
+
+
+/*-------------------------------------------
+    RADIO DEFAULT THEMES
+---------------------------------------------*/
+.radio-default .input-group.radio-input:hover .radio-theme--green {
+    background: transparent;
+    border: 2px solid #77aa43;
+    @include vendor-prefixed( border-radius, 10px );
+}
+
+.radio-default .input-group.radio-input:hover .radio-theme--green.radio-input--selected {
+    background: transparent;
+    border: 2px solid #77aa43;
+    @include vendor-prefixed( border-radius, 10px );
+}
+
+.radio-default .input-group.radio-input .radio-theme--green.radio-input--selected {
+    background: transparent;
+    border: 2px solid #77aa43;
+    position: relative;
+
+
+    &:before {
+        content: '';
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        @include vendor-prefixed( border-radius, 10px );
+        background-color: #77aa43;
+        position: absolute;
+        top:    0;
+        bottom: 0;
+        right:  0;
+        left:   0;
+        margin: auto;
+    }
+}
+
+
+
+.radio-default .radio-theme--green {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    margin-bottom: 0;
+    padding: 0 !important;
+    top: -2px;
+    border: 2px solid  #8c8c8a;
+
+    @include vendor-prefixed( border-radius, 10px );
+}
+
+@media (min-width: 768px) {
+    .radio-default .radio-theme--green {
+        top: -7px;
+    }
+}
+
+.radio-default .radio-theme--green input[type="radio"] {
+    cursor: pointer;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    -ms-opacity: 0;
+    -o-opacity: 0;
+    opacity: 0;
+}
+
+.radio-default .landing--radio {
+    margin: 4px 0;
+}
+
+@media (max-width: 767px) {
+    .radio-default  .input-group input {    
+        border: 1px solid transparent;
+        box-shadow: none;
+    }
+}
+
+.landing--radio .radio-theme--green  input[type="radio"],
+.landing--radio input {
+    visibility: hidden;
+    margin-left: 0;
+    left: 0;
+    top: 0;
+}
+
+.landing--radio .input-group-addon {
+    padding: 5px;
+}
+.landing--radio .radio-input label {
+    height: 20px;
+    min-height: auto;
+    position: relative;
+    display: block;
+    width: 20px;
+}

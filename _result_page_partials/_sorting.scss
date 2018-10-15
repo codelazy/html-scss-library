@@ -1,0 +1,330 @@
+/*-------------------------------------------------------------------------------
+    TITLE:          SORTING (RESULTS PAGE) 
+    DESCRIPTION:    This will be shared by anyone who uses the result template
+
+    [1] HEADER
+    [2] BODY (LIST OF PROVIDERS)
+---------------------------------------------------------------------------------*/
+
+
+
+
+
+/*------------------------------------
+    [1] HEADER 
+------------------------------------*/
+.result-header {
+    z-index: 9;
+
+    @include desktop {
+        & {
+            background-color: map-get( $color, green-mint );
+
+            width: 100%;
+
+        }
+    }
+
+    &.sticky-header--fixed {
+        position: fixed;
+        top: 0;
+
+        @include mobile {
+            background-color: map-get( $color, white-dirty );
+        }
+
+
+
+        & {
+            @include vendor-prefixed( box-shadow, 0 5px 5px  map-get( $color, gray ) );
+
+            @include desktop {
+                @include vendor-prefixed( box-shadow, 0 0 0 transparent );
+            }
+        }
+    }
+
+    &.sticky-header--static {
+        position: static;
+        top: 0;
+        
+        @include mobile {
+            background: map-get( $color, dodger-blue );
+        }
+    }
+    
+    &.sticky-header--static .container, &.sticky-header--fixed .container {
+        @include mobile {
+            padding: 0;
+        }
+    }
+
+}
+
+.result-header .container {
+
+
+    @include desktop {
+        & {
+            display: table;
+
+        }
+    }
+}
+
+
+
+.result-header .sorting-container {
+    background-color: map-get( $color, white-dirty );
+
+    @include desktop {
+        background-color: transparent;
+
+    }
+    
+    @include mobile {
+        background: map-get( $color, dodger-blue );
+    }
+}
+.result-header .sorting-container .detect-child-element--container {
+    margin: 0;
+}
+
+.result-header .sorting-container .detect-child-element--cell {    
+    border-right: 0 transparent;
+    border-left: 1px solid map-get( $color,  gray-light-4 );
+    padding: 0;
+    text-decoration: none;
+    text-align: left;
+
+
+    @include desktop {
+        border-right: 1px solid map-get( $color,  green-mint-1 );
+        border-left: 0 transparent;
+        padding: 4px 10px;
+        vertical-align: top;
+
+        /* span {
+            margin-right: 20px;
+        } */
+
+        &.sorting-item {
+            cursor: pointer;
+        }
+
+        &.selected {
+            font-weight: bold;
+            color: #fff;
+
+            i {
+                font-weight: inherit;
+                color: inherit;
+            }
+        }
+    }
+    
+    @include mobile {
+        &.selected {
+            background: map-get( $color, dodger-blue__dark );
+            border-color: map-get($color, sky-blue);
+        }
+    }
+
+    &.sorting--provider-logo {
+        width: 20%;
+    }
+}
+
+.result-header .sorting-container .sorting-title {
+    color: map-get( $color, gray );
+    padding: 0 10px;
+    margin: 10px 0;
+
+    @include desktop {               
+        color: map-get( $color, white );
+        border-left: 0 transparent;
+        padding: 0;
+    }
+    
+    @include mobile {
+        margin: 0;
+        padding: 0 15px 0 10px;
+    }
+}
+
+
+.result-header .sorting-container .sorting-title .m-cgg {
+    display: block;
+    
+    @include mobile {
+        color: map-get($color, sky-blue );
+        font-size: 14px;
+        position: absolute;
+        right: 5px;
+    }
+}
+
+.result-header .sorting-provider,
+.result-header .sorting-min-length,
+.result-header .sorting-view {
+    display: none;
+
+    @include desktop{
+        display: table-cell;
+    }
+
+}
+
+
+
+
+/*------------------------------------
+    [1] BODY
+------------------------------------*/
+.sorting-container {
+    @include desktop {
+
+        height: 100%;
+
+
+        vertical-align: top;
+        float: none;
+
+        flex-basis: 83%; //FLEXBOX WORKS ONLY ON LATEST VENDOR VERSION
+        max-width: 83%;
+
+        /* FALLBACK ON IE9 BELOW */
+        .no-js &,
+        .no-flexbox & {
+            display: table-cell;
+            vertical-align: top;
+        }
+
+    }
+}
+
+.sorting-container .display-row,
+.sorting-container .display-table {
+    width: 100%;
+    height: auto;
+}
+.sorting-container .display-row {    
+
+    @include desktop {
+        display: table-row;
+    }
+}
+
+.sorting-container .detect-child-element--cell {
+    
+    padding: 0 10px;
+    vertical-align: middle;
+
+    @include font-size( 12px );
+    color: map-get( $color, white );
+    border-right: 1px solid map-get( $color,  green-mint-1 );
+
+    &:last-child {
+        border-right: 1px solid transparent;
+    }
+
+    .m-cgg {
+        display: none;
+
+        @include desktop {
+            display: block;
+        }
+    }
+}
+
+.cgg-comparison-widget-sort-header.sorting-container .detect-child-element--cell {
+    @include mobile {
+        border-color: transparent;
+        border-style: solid;
+        border-width: 0 0 5px 0;
+        padding: 10px 0;
+        vertical-align: top;
+        @include vendor-prefixed( transition, "border-color 300ms ease-in-out" );
+    }
+}
+
+.sorting-container .sorting-title {
+    position: relative;
+}
+
+.sorting-container .sorting-title span {
+    @include mobile {
+        color: map-get( $color, white );
+    }
+}
+
+.sorting-container .sorting-title .sorting-unit {
+    display: none;
+}
+
+.sorting-container .detect-child-element--cell .m-cgg {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    color: map-get( $color, gray );
+    @include font-size( 16px );
+
+    @include desktop {
+        color: map-get( $color, green-mint-2 );
+    }
+
+}
+
+#sorting--provider-logo {
+    @include mobile {
+        display: none;
+    }
+}
+
+#sorting--contract {
+    @include mobile {
+        display: none;
+    }
+}
+
+#sorting--features {
+    @include mobile {
+        display: none;
+    }
+}
+
+#layout-sorting-item {
+    @include mobile {
+        display: none;
+    }
+}
+
+#sorting--data {
+    @include mobile {
+        padding-left: 15px;
+        width: 30%;
+    }
+}
+
+#sorting--hours {
+    @include mobile {
+        width: 30%;
+    }
+}
+
+#sorting--price {
+    @include mobile {
+        width: 40%;
+    }
+}
+
+#sorting--price .sorting-title .m-cgg {
+    @include mobile {
+        right: 25px;
+    }
+    
+    @include mobile-small {
+        right: 7px;
+    }
+}

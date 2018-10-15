@@ -1,0 +1,225 @@
+/**
+* Variables
+*/
+$row-selector: ".detect-child-element--container";
+$row-selector-result-page: ".detect-child-element--container-result-page";
+$row-selector-provider-list-container: ".provider-data-container";
+$row-selector-provider-list-container-width: 18.5%;
+$column-selector: ".detect-child-element--cell";
+$sorting--provider-logo-width: 20%;
+$no-of-columns: 12 !default;
+$max-width: 100% !default;
+$gutter: 15px !default;
+
+
+
+
+/* Set an overflow: hidden to clear all floats*/
+#{$row-selector} {
+  width: 100%;
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+  // overflow: hidden;
+
+  /* FALLBACK ON IE9 BELOW */
+  .no-js &,
+  .no-flexbox & {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    empty-cells: hide;
+  }
+
+
+  /* FLEXBOX WORKS ONLY ON LATEST VENDOR VERSION */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+  
+  
+  #{$row-selector} {
+    /* margin-left: -#{$gutter};
+    margin-right: -#{$gutter}; */
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: none;
+  }
+    
+  > #{$column-selector} {    
+    padding: 0 $gutter;    
+
+
+    /* FALLBACK ON IE9 BELOW */
+    .no-js &,
+    .no-flexbox & {
+      display: table-cell;
+      vertical-align: middle;
+    }
+    
+    
+    // Set default widht of column
+    &:first-child:nth-last-child(1) {
+      max-width: 100%;
+    }
+  }
+}
+#{$row-selector}#{$row-selector-result-page} {
+  width: 100%;
+}
+
+
+@for $i from 2 through $no-of-columns {
+
+    /*------------------------------------------------------
+      ONLY FOR RESULTS PAGE 
+      NOTE: FIRST-CHILD ELEMENT RESERVED FOR PROVIDER LOGO
+            WHERE WE NEED TO  MAKE A BIT WIDER TO THE REST
+            OF THE CHILD ELEMENT CELLS
+
+
+      DEFAULT CODE:
+    
+      #{$row-selector} > #{$column-selector}:first-child:nth-last-child( #{$i} ) {
+        &,
+        & ~ #{$column-selector} {
+          width: 100% /$i;
+        }
+      }  
+    --------------------------------------------------------*/
+    
+    #{$row-selector} > #{$column-selector}:first-child:nth-last-child( #{$i} ) {
+      &,
+      & ~ #{$column-selector} {
+        flex-basis: 100% /$i; //FLEXBOX WORKS ONLY ON LATEST VENDOR VERSION
+        max-width: 100% /$i;
+      }
+
+      /* FOR IE9 AND BELOW */
+      .no-js &,
+      .no-flexbox &,
+      .no-js & ~ #{$column-selector}, 
+      .no-flexbox & ~ #{$column-selector} {        
+        width: 100% /$i;
+      }
+
+    }
+
+
+    /*---------------------------------------------------------
+        DESIGN ONLY ON RESULTS PAGE
+        NOTE: CLASS ".sorting--provider-logo" MUST DECLARE
+              ONLY ON FIRST-CHILD ELEMENT
+    ------------------------------------------------------------*/
+    #{$row-selector-result-page} > #{$column-selector}.sorting--provider-logo:first-child:nth-last-child( #{$i} ) {
+      &,
+      & ~ #{$column-selector}.sorting--provider-logo {
+        flex-basis: #{$sorting--provider-logo-width}; //FLEXBOX WORKS ONLY ON LATEST VENDOR VERSION
+        max-width: #{$sorting--provider-logo-width};
+      }
+      
+      & ~ #{$column-selector} {
+        flex-basis: (100 - $sorting--provider-logo-width)  / ($i - 1); //FLEXBOX WORKS ONLY ON LATEST VENDOR VERSION
+        max-width: (100 - $sorting--provider-logo-width)  / ($i - 1);
+      }
+
+      /* FOR IE9 AND BELOW */
+      .no-js &,
+      .no-flexbox &,
+      .no-js & ~ #{$column-selector}.sorting--provider-logo, 
+      .no-flexbox & ~ #{$column-selector}.sorting--provider-logo {
+        width: #{$sorting--provider-logo-width};
+      }
+
+      .no-js & ~ #{$column-selector}, 
+      .no-flexbox & ~ #{$column-selector} {        
+        width: (100 - $sorting--provider-logo-width)  / ($i - 1);
+      }
+
+
+    }
+
+    /*---------------------------------------------------------
+        DESIGN ONLY ON RESULTS PAGE
+        NOTE: CLASS ".sorting--provider-logo" MUST DECLARE
+              ONLY ON FIRST-CHILD ELEMENT
+    ------------------------------------------------------------*/
+    #{$row-selector-provider-list-container} > #{$column-selector}.provider-item-logo:first-child:nth-last-child( #{$i} ) {
+      &,
+      & ~ #{$column-selector}.provider-item-logo {
+        flex-basis: 100%;
+        max-width:  100%;
+        
+        @include desktop{
+          flex-basis: #{$row-selector-provider-list-container-width}; //FLEXBOX WORKS ONLY ON LATEST VENDOR VERSION
+          max-width: #{$row-selector-provider-list-container-width};  
+        }
+        
+      }
+
+      & ~ #{$column-selector} {
+        
+
+        @include desktop {
+          flex-basis: (100 - $row-selector-provider-list-container-width)  / ($i - 1); //FLEXBOX WORKS ONLY ON LATEST VENDOR VERSION
+          max-width: (100 - $row-selector-provider-list-container-width)  / ($i - 1);  
+        }
+        
+      }
+
+      /* FOR IE9 AND BELOW */
+      .no-js &,
+      .no-flexbox &,
+      .no-js & ~ #{$column-selector}.provider-item-logo,
+      .no-flexbox & ~ #{$column-selector}.provider-item-logo {
+          width: 100%;
+          display: table-caption;
+          caption-side: top;
+
+          @include mobile {
+            padding: 10px 30px;
+          }
+
+          @include desktop {
+            display: table-cell;
+            width: #{$row-selector-provider-list-container-width};
+            vertical-align: middle;
+            padding: 15px 10px;
+          }
+          
+      }
+
+      .no-js & ~ #{$column-selector},
+      .no-flexbox & ~ #{$column-selector} {
+        
+        @include desktop {
+          width: (100 - $row-selector-provider-list-container-width)  / ($i - 1);
+          vertical-align: middle;
+          padding: 15px 10px;
+        }
+      }
+
+    }
+  
+    
+}
+
+
+
+
+/*---------------------------------------------------------
+    FLEX MISC
+------------------------------------------------------------*/
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.align-self--stretch {
+  align-self: stretch;
+}
+
+.align-items--flex-start {
+  align-items: flex-start;
+}

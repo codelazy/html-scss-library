@@ -1,0 +1,157 @@
+/*------------------------------------
+    FUNNEL QUESTIONS PROVIDER LISTS
+------------------------------------*/
+.question-funnel-providers--container .question-funnel-providers--header {
+    background-color: map-get( $color, dodger-blue );
+    padding: 20px 0;
+}
+
+.question-funnel-providers--container .question-funnel-providers--body .providers-logo--container {
+    @extend .clearfix;
+}
+
+.question-funnel-providers--container .question-funnel-providers--body .providers-logo--container ul {
+    list-style-type: none;
+    padding: 0;
+    margin:  0;
+    text-align: left;
+
+    @include desktop {
+        margin: 0 auto;
+        text-align: center;    
+    }    
+}
+
+.question-funnel-providers--container .question-funnel-providers--body .providers--action {
+    text-align: center;
+}
+
+.question-funnel-providers--container .question-funnel-providers--body .providers-logo--container ul li {
+    
+    
+
+    @include desktop {
+        float: left;
+        margin: 5px;
+        width: 133px;
+        height: 103px;
+
+        &:nth-child(4n){
+            margin-right: 0;
+        }
+
+        &:nth-child(4n + 1){
+            margin-left: 0;
+        }
+    }
+
+    @media (min-width: 991px) and (max-width: 1199px) {
+
+        & {
+            width: 106px;
+        }
+
+        
+    }
+
+    @media (max-width: 991px) {
+        & {
+            width: 20%;
+            display: inline-block;
+            float: none;
+        }        
+
+        &:nth-child(4n){
+            margin-right: 5px;
+        }
+
+        &:nth-child(4n + 1){
+            margin-left: 5px;
+        }   
+    }
+
+    @include mobile {
+        display: block;
+        width: 100%;
+        margin: 15px 0 15px 10px;
+
+        &:nth-child(4n){
+            margin-right: 10px;
+        }
+
+        &:nth-child(4n + 1){
+            margin-left: 10px;
+        } 
+    }
+    /*@media screen and (max-width: 600px) {
+        & {
+            width: 120px;
+            float: left;
+            display: block;
+        }        
+
+        &:nth-child(even) {
+            float: right;
+        }
+    }*/
+
+}
+.question-funnel-providers--container .question-funnel-providers--body .providers-logo--container .provider-logo--box {
+    border: none;
+    display: block;
+
+    @include desktop {
+        display: table;    
+        width:  100%;
+        height: 100%;
+        border: 1px solid map-get( $color, gray-light-1 );
+        @include vendor-prefixed( transition, all 0.15s ease ); 
+        @include vendor-prefixed( border-radius, 3px );
+        background-color: map-get( $color, white );    
+    }
+    
+    cursor: pointer;
+
+    &.highlighted-provider {
+        border: 2px solid map-get( $color, green-mint-3 );        
+    }
+
+    &:hover, &.has-selected {
+        border-color: map-get( $color, green-mint-3 );
+        border-width: 2px;
+    }
+}
+
+.question-funnel-providers--container .question-funnel-providers--body .providers-logo--container .provider-logo--box .provider-logo--image {
+    display: none;
+    padding: 10px;    
+    
+    vertical-align: middle;
+    width: inherit;
+    height: inherit;
+    @include font-size( 12px );
+
+    @include desktop {
+        display: table-cell;
+    }
+}
+
+
+.question-funnel-providers--container .question-funnel-providers--body .providers-logo--container .provider-logo--box .provider-logo--image img {
+    width: 90%;
+    text-align: left;
+    margin: 0 auto;
+    display: block;
+
+    @include desktop {
+
+    }
+}
+
+.question-funnel-providers--container .question-funnel-providers--body .providers-logo--container .provider-logo--box .radio-default .funnel-question-provider-name {
+    font-weight: 600;
+    padding-left: 35px;
+
+    color: map-get( $color, gray-dark );
+    @include font-size( 12px );
+}

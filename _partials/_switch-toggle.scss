@@ -1,0 +1,181 @@
+/*-------------------------------------------------------------------------------
+    TITLE:			SWITCH TOGGLE CSS
+        DESCRIPTION:	Like on and off switch
+---------------------------------------------------------------------------------*/
+
+
+/*------------------------------------
+    VARIABLES
+------------------------------------*/
+$currSwitchToggleWidth:  20px;
+$currSwitchToggleHeight: 20px;
+
+$currSwitchColorDefault: map-get( $color, gray-2 );
+$currSwitchColorActive: map-get( $color, green-dark-2 );
+
+
+
+
+
+.switch-container {
+    @extend .clearfix;
+
+    position: relative;
+
+    @include desktop {
+        margin-bottom: 10px;     
+    }
+}
+
+.switch-container .switch {
+    width: 60px;
+    float: left;
+
+    @include mobile {
+        display: none;
+    }
+}   
+
+.switch-container .switch-text {
+    width: auto;
+    @include font-size ( 11px );
+    float: left;
+    color: map-get( $color, black-light );
+    font-weight: 700;
+    margin-top: 3px;
+
+    @include desktop {
+        width: calculateCurrentScreenSize( 100%, 80px );
+    }
+
+    @include mobile {
+
+        display: none;
+
+        &.active {
+            display: block;
+            font-weight: 600;
+        }
+
+        &::after {
+            content: ',';
+        }
+
+        @include font-size( 14px );
+
+    }
+}
+
+.switch-container.active .switch-text {
+    @include mobile {
+        display: block;
+        font-weight: 600;
+    }
+}
+
+.collapsable-container .refine-item-container--mobile-wrap .refine-item-container {
+    //display: none;
+}
+
+.collapsable-container .refine-item-container--mobile-wrap .refine-item-container.active {
+    display: inline-block;
+}
+
+.refine-item-container .switch-container.no-commas .switch-text {
+    @include mobile {
+        &::after {
+            content: '';
+        }
+    }
+}
+
+.switch-container .switch-tooltip {
+    width: 20px;
+    float: right;
+    position: relative;
+}
+
+.mobile-toggle-tooltip {
+    display: none;
+    @include mobile {
+        display: none;
+
+        &.active {
+            display: inline-block;
+        }
+    }
+}
+
+
+
+/* ============================================================
+  COMMON
+============================================================ */
+.cmn-toggle {
+    position: absolute;
+    margin-left: -9999px;
+    visibility: hidden;
+}
+
+.cmn-toggle + label {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    @include vendor-prefixed( user-select, none );    
+}
+
+
+
+
+
+
+/* ============================================================
+  SWITCH 1 - ROUND
+============================================================ */
+input.cmn-toggle-round + label {
+    padding: 2px;
+    width: $currSwitchToggleWidth * 2;
+    height: $currSwitchToggleHeight;
+    background-color: $currSwitchColorDefault;
+    @include vendor-prefixed( border-radius, $currSwitchToggleWidth );    
+
+    &:before,
+        &:after {
+        display: block;
+        position: absolute;
+        top: 1px;
+        left: 1px;
+        bottom: 1px;
+        content: '';	
+    }    
+
+    &:before {
+        right: 1px;
+        background-color: map-get( $color, gray-light-5 );
+        @include vendor-prefixed( border-radius, $currSwitchToggleWidth );
+        @include vendor-prefixed( transition, background-color .4s ease-in-out);   	
+    }
+
+    &:after {
+        width: $currSwitchToggleWidth;
+        background-color: map-get( $color, white );
+        @include vendor-prefixed( border-radius, 100% );
+        @include vendor-prefixed( box-shadow, 0 2px 5px rgba(0, 0, 0, 0.3) );
+        @include vendor-prefixed( transform, translateX(0px));
+        @include vendor-prefixed( transition, transform .4s ease-in-out);
+    }
+
+}
+
+input.cmn-toggle-round:checked + label {
+
+    &:before {
+        background-color: $currSwitchColorActive;	
+    }
+
+    &:after {
+        @include vendor-prefixed( transform, translateX(20px));
+    }
+
+}

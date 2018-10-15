@@ -1,0 +1,15 @@
+/**
+ * -------------------------------------------------------------
+ *
+ *     CSS Name: Z-INDEX
+ *  Description: A collection of all z-index and what are reserved z-index and reusable z-index
+ * 
+ * -------------------------------------------------------------
+ */
+
+
+$z-index: (
+  header-footer--fixed: 100,
+  summary-overlay: 101,
+  summary-container--fixed: 102
+);

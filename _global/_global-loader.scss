@@ -1,0 +1,158 @@
+/**
+ *
+ *          GLOBAL LOADER
+ *
+ */
+
+/*------------------------------------
+    SPINNING WHEEL LOADER
+------------------------------------*/
+.loading-container,
+.preloader--spinningwheel {
+    position: absolute;
+    bottom: 0;
+    left:   0;
+    right:  0;   
+
+}
+
+.preloader--spinningwheel {    
+    width: 100%;    
+    top:   75px;  
+    margin: 0 auto;
+
+    height: calculateCurrentScreenSize(100%, 80px);
+}
+
+
+.preloader--spinningwheel .loading-container {    
+    top:   0;    
+    background: 0 0;    
+    z-index: 19;
+
+    width:  inherit;
+    height: inherit;
+}
+
+
+.preloader--spinningwheel .ci-results-loader {    
+    line-height: 20px;    
+    margin: 30px auto;
+
+    display: table;
+
+}
+
+.preloader--spinningwheel .ci-results-loader .preloader--spinningwheel__text {
+    font-weight: 900;
+    display: table-cell;
+    vertical-align: middle;
+
+    @include font-size( 24px );
+    color: map-get( $color, green-dark-2 );
+
+    @media (max-width: 768px) {
+       @include font-size( 18px );
+    }
+}
+
+.preloader--spinningwheel #cgg_loader{
+    width:  120px;
+    height: 120px;
+    position: relative;    
+    display: table-cell;
+    vertical-align: middle;
+
+    @include vendor-prefixed( transform, scale(.6) );
+        
+}
+
+.preloader--spinningwheel .f_circleG{
+    height: 18px;
+    width:  18px;    
+    position: absolute;
+    
+    background-color: map-get( $color, green-dark-2 );
+
+    @include vendor-prefixed( border-radius, 12px );    
+    @include vendor-prefixed( animation-name, f_fadeG );
+    @include vendor-prefixed( animation-duration, 1.04s );    
+    @include vendor-prefixed( animation-iteration-count, infinite );
+    @include vendor-prefixed( animation-direction, normal );
+
+}
+
+
+/*------------------------------------
+    DOTTED UNIQUE DIVS
+------------------------------------*/
+$left: (
+    value-1:    0,
+    value-2: 15px,
+    value-3: 52px,
+    value-4: auto,
+    value-5: auto,
+    value-6: auto,
+    value-7: 52px,
+    value-8: 15px,
+);
+$right: (
+    value-1: auto,
+    value-2: auto,
+    value-3: auto,
+    value-4: 15px,
+    value-5:    0,
+    value-6: 15px,
+    value-7: 52px,
+    value-8: auto,
+);
+$top: (
+    value-1: 52px,
+    value-2: 15px,
+    value-3:    0,
+    value-4: 15px,
+    value-5: 52px,
+    value-6: auto,
+    value-7: auto,
+    value-8: auto,
+);
+$bottom: (
+    value-1: auto,
+    value-2: auto,
+    value-3: auto,
+    value-4: auto,
+    value-5: auto,
+    value-6: 15px,
+    value-7:    0,
+    value-8: 15px,
+);
+
+$i: 8;
+@while $i > 0 {
+
+    #frotateG_#{$i} { 
+        
+        /* SETTING ANIMATION DELAY */
+        $j: .13 * $i;
+        @include vendor-prefixed( animation-delay, .26s + $j );
+
+
+        /* SETTING DIV POSITIONS */        
+        bottom: map-get( $bottom, value-#{$i} );
+         right: map-get( $right, value-#{$i} ); 
+          left: map-get( $left, value-#{$i} );
+           top: map-get( $top, value-#{$i} );
+
+    }
+
+    $i: $i - 1;
+}
+
+
+
+.preloader--spinningwheel__text.left-container { float:left }
+
+@include keyframes( f_fadeG ) {
+    0% { background-color: map-get( $color, green-superlight-1 ); }
+  100% { background-color: map-get( $color, green-dark-2 ); }
+}

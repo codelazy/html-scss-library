@@ -1,0 +1,190 @@
+/**
+ * ------------------------
+ *
+ *     CSS Name: NAVIGATION BAR (PROGRESS)
+ *  Description: 
+ * 
+ * --------------------------
+ */
+
+
+/* ICON SHAPES */
+.icon-shape__circle {
+    border: 2px solid;
+    border-radius: 50%;
+    color: #CCDFB9;
+
+}
+
+$navbaranimtime: 300ms;
+
+.nav-bar--progress {
+    position: relative;
+    
+    @include mobile {
+        display: none;
+    }
+}
+
+.nav-bar--progressbar {
+    height: 4px;
+    left: 5%;
+    position: absolute;
+    top: 50%;
+    @include vendor-prefixed( transition, width $navbaranimtime ease-in-out);
+}
+
+.nav-bar--progressbar__background {
+    background: #CCDFB9;
+    width: 90%;
+}
+
+.nav-bar--progressbar__foreground {
+    background: #77AA43;
+}
+
+@for $i from 0 through 2 {
+    .nav-bar--progress[data-step-count="#{$i}"] .nav-bar--progressbar__foreground {
+        width: 0%;
+    }
+}
+
+.nav-bar--progress[data-step-count="3"] .nav-bar--progressbar__foreground {
+    width: 30%;
+}
+
+.nav-bar--progress[data-step-count="4"] .nav-bar--progressbar__foreground {
+    width: 45%;
+}
+
+.nav-bar--progress[data-step-count="5"] .nav-bar--progressbar__foreground {
+    width: 60%;
+}
+
+.nav-bar--progress[data-step-count="6"] .nav-bar--progressbar__foreground {
+    width: 75%;
+}
+
+.nav-bar--progress[data-step-count="7"] .nav-bar--progressbar__foreground {
+    width: 90%;
+}
+
+.nav-bar--progress ul {
+
+    padding: 0; 
+    margin: 0;
+    @extend .clearfix;
+
+}
+
+.nav-bar--progress ul li {
+
+    float: left;
+    padding: 0; 
+    margin:  0;
+    list-style-type: none;
+    display: table;
+    border-spacing: 0;
+    width: 30%;
+    position: relative;
+
+    /* First and Last child */
+    &:last-child,
+        &:first-child {
+        width: 20%;
+    }
+
+    //IE8 HACK
+    .cgg-collector-widget.ie8 & {
+        width: 25%;	
+    }
+
+
+    &:last-child:after, 
+        &:first-child:before {
+        display: none;
+    }
+
+
+    /*-----------------------------------------
+        CURRENT OR SELECTED PROGRESS BAR NAV
+    -------------------------------------------*/
+    &.nav-status--selected .nav-bar--progress__link {
+        background-color: #77AA43;
+        color: #ffffff;
+        border-color: #77AA43;
+    }
+
+    //IE8 HACK
+    .cgg-collector-widget.ie8 &.nav-status--selected:first-child:before { 
+        border-color:  transparent ;
+    }
+
+    //IE8 HACK
+    .cgg-collector-widget.ie8 &.nav-bar__child--last:after { 
+        border-color:  transparent ;
+    }
+
+
+
+}
+
+.nav-bar--progress ul li:last-child .nav-bar--progress__link,
+.nav-bar--progress ul li:first-child .nav-bar--progress__link {
+    margin: 0;	
+}
+
+.nav-bar--progress ul li:last-child .nav-bar--progress__link {
+    float: right;
+}
+
+
+.nav-bar--progress ul li .nav-bar--progress__link {
+
+    width:   60px;
+    height:  60px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+    background-color: #ffffff;
+    @include vendor-prefixed( transition, background-color $navbaranimtime ease-in-out $navbaranimtime);
+
+
+    @media screen and (max-width: 480px) {
+        &{
+            width:   40px;
+            height:  40px;
+        }
+    }
+
+}
+
+
+
+
+
+
+/*------------------------------------
+    ICONS
+------------------------------------*/
+.nav-bar--progress ul li .nav-bar--progress__link i {
+
+    width:  100%;
+    height: 100%;
+    display: table;
+    border-spacing: 0;
+    @include vendor-prefixed( transition, color $navbaranimtime ease-in-out $navbaranimtime);
+    @include font-size( 24px );
+
+    &:before {
+
+        width:  inherit;
+        height: inherit;
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+
+
+    }
+
+}

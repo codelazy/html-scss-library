@@ -1,0 +1,1814 @@
+/*-------------------------------------------------------------------------------
+    TITLE:			PROVIDER LIST
+        DESCRIPTION:	SHOW IN TABLE LISTING
+
+        [1] Provider row
+        [2] Show more details
+        [3] Order form pop-up modal
+---------------------------------------------------------------------------------*/
+
+
+
+
+
+/*--------------------------------------------------
+    SHARED BOTH RESULT PROVIDER AND SORTING HEADER
+---------------------------------------------------*/
+.sorting-container .display-row,
+.sorting-container .display-table {
+    width: 100%;
+    height: auto;
+}
+.sorting-container .display-row {    
+
+    @include desktop {
+        display: table-row;
+    }
+}
+
+.sorting-container .display-cell {
+
+    height: 100%;
+    padding: 0 10px;
+    vertical-align: middle;
+
+    @include font-size( 12px );
+    color: map-get( $color, white );
+    border-right: 1px solid map-get( $color,  green-mint-1 );
+
+    &:last-child {
+        border-right: 1px solid transparent;
+    }
+
+    .m-cgg {
+        display: none;
+
+        @include desktop {
+            display: block;
+        }
+    }
+}
+
+
+.sorting-container .detect-child-element--cell {
+    border-right: 1px solid transparent;
+}
+
+.result-body .sorting-container .provider-data-container .detect-child-element--cell {
+    color: map-get( $color, gray-dark-2 );
+    text-align: center;
+    position: relative;
+}
+
+/*------------------------------------
+    PROVIDER LISTING CONTAINER
+------------------------------------*/
+.provider-list-container {
+
+    counter-reset: provider-item--normal 0;
+    margin-top: 10px;
+    @include vendor-prefixed( align-self, start );
+
+    @include desktop {
+        & {
+
+            width: 83%;
+            height: 100%;
+            display: table-cell;
+
+            vertical-align: top;
+            float: none;
+            margin-top: 0;
+        }
+    }
+}
+
+
+
+/*------------------------------------
+    PROVIDER CATEGORY
+------------------------------------*/
+.provider-data-container {
+
+    position: relative;
+}
+
+.provider-item-sponsored--container {
+    display: block;
+    width: 100%;
+    margin: 0;    
+
+
+    @include desktop {
+        /* display: table; */
+        margin: 0 0 0 20px;
+        width: calculateCurrentScreenSize(100%, 20px);
+        width: 98%\9; /* IE9 */
+        /* height: 134px; */
+    }
+}
+
+
+/* DEFAULT STATE */
+.provider-list-container .provider-list-table .display-table--item {
+    display: table;
+    width: 100%;
+
+    &:first-child {
+        height: 112px;
+        border: 0;
+    }
+}
+.provider-list-container .provider-list-table {
+    display: block;
+    width: 100%;
+    margin: 0;
+    @include vendor-prefixed( box-shadow, 2px 2px 0 map-get( $color, gray-light-4 ) );    
+
+
+
+    @include desktop {
+        position: relative;
+        /* display: table; */
+        margin: 0 0 0 20px;
+        width: calculateCurrentScreenSize(100%, 20px);
+        width: 98%\9; /* IE9 */
+        /* height: 134px; */
+    }
+
+}
+
+.provider-list-container .provider-list-table .flex-wrap {
+    position: relative;
+}
+
+.provider-list-container .provider-list-table .sorting-view .btn {
+    padding: 8px;
+}
+
+.provider-list-container .provider-list-table .display-row {
+
+    background-color:  map-get( $color, white );
+
+}
+
+.provider-list-container .provider-list-table .best-for {
+    @include vendor-prefixed( box-shadow, 1px 0px 1px rgba(0, 0, 0, 0.05) );
+    color: map-get( $color, sky-blue-4 );
+    display: inline-block;
+    @include font-size( 10px );
+    font-weight: 700;
+    padding: 5px 45px 5px 10px;
+    position: relative;
+    text-transform: uppercase;
+    top: 1px;
+    width: auto;
+}
+
+.provider-list-container .provider-list-table .best-for::after {
+    background: map-get( $color, white );
+    @include vendor-prefixed( border-radius, 11px 0 0 0 );
+    @include vendor-prefixed( box-shadow, 2px -1px 1px rgba(0, 0, 0, .05) );
+    content: "";
+    display: block;
+    height: 45px;
+    right: -16px;
+    @include vendor-prefixed( transform, rotate(60deg) );
+    position: absolute;
+    top: 4px;
+    width: 45px;
+}
+
+.provider-list-container .provider-list-table .best-for span {
+    bottom: 3px;
+    position: relative;
+}
+
+.provider-list-container .provider-list-table .best-for .cgg-icon {
+    color: map-get( $color, sky-blue-4 );
+    @include font-size( 14px );
+    font-weight: 600;
+}
+
+.provider-list-container .provider-list-table .display-cell {
+    text-align: left;
+    border-right:  transparent;
+    color: map-get( $color, gray-dark );
+    cursor: default;
+    vertical-align: middle;
+    text-decoration: none;
+    height: 100%;
+    padding: 0 10px;
+    vertical-align: middle;
+
+    @include desktop {
+        text-align: center;
+    }
+
+}
+
+
+.provider-list-container .provider-list-table .detect-child-element--cell.provider-item-container {
+    display: block;
+    width: 100%;
+    padding: 0;    
+    position: relative;
+
+    @include desktop {
+        &:first-child {
+            flex-basis: 67.25%;
+            max-width: 67.25%;    
+        }
+
+
+        .no-js &,
+        .no-flexbox & {
+            display: table-cell;
+            width: 66%;
+            vertical-align: middle;
+        }
+    }
+}
+
+
+
+.provider-list-container .provider-list-table .provider-item-container .display-table .display-row .display-cell {
+    vertical-align: middle;
+}
+
+.provider-list-container .provider-list-table .provider-item-container .sorting-provider {        
+    display: block;
+    width: 100%;
+    text-align: left;    
+    margin-bottom: 10px;
+
+    @include desktop {
+        width: calculateCurrentScreenSize( 100%, 30px );
+        margin-left: 30px;
+        display: table-cell;
+        width: 28%;
+        text-align: center;
+        margin-left: -10px;
+        margin-bottom: 0;
+    }
+}
+
+.provider-list-container .provider-item--normal {
+    background-color: map-get( $color, white );
+}
+
+.provider-list-container .provider-item--normal#provider-item--welcome-banner .provider-data-container .detect-child-element--cell {
+    padding-bottom: 30px;
+    padding-top: 30px;
+
+    @include mobile {
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+}
+
+.provider-list-container .provider-item--normal .sorting-item.sorting-selected {
+    @include desktop {
+        background-color: map-get( $color, sky-blue-5 );
+    }
+}
+
+.provider-list-container .provider-item--sponsored__unlimited .sorting-item.sorting-selected {
+    @include desktop {
+        background-color: map-get( $color, yellow-light-2 );
+    }
+}
+
+.provider-list-container .provider-item--sponsored__unlimited .provider-data-container {
+
+}
+
+.provider-list-container .provider-list-table .provider-item-container .sorting-min-length {
+    width: 33.3333333%;
+    display: none;
+    float: left;
+
+    color: map-get( $color, gray-light-3 );
+    @include font-size( 10px );
+    font-weight: 400;
+    line-height: 140%;
+
+    @include desktop {
+        width: 25%;
+        display: table-cell;
+        float: none; 
+        @include font-size( 12px );
+    }
+}
+
+.provider-list-container .provider-list-table .provider-item-container .sorting-data-included {
+    width: 38%;
+    display: block;
+    float: left;
+    color: map-get( $color, gray-light-3 );
+    @include font-size( 12px );
+    font-weight: 400;
+    line-height: 140%;
+    margin-bottom: 10px;
+    padding-right: 0;
+
+    @include desktop {
+        width: 25%;
+        display: table-cell;
+        float: none;            
+        margin-bottom: 0;
+        @include font-size( 12px );
+        padding-right: 10px;
+    }
+}
+
+.provider-list-container .provider-list-table .provider-item-container .sorting-data-included .data-cell--value {
+    position: relative;
+    display: inline-block;        
+
+    @include desktop {
+        display: block;            
+    }
+}
+
+.provider-list-container .provider-list-table .provider-item-container .sorting-data-included .data-cell--value .m-cgg {
+    position: relative;
+    color: map-get( $color, black-light );
+    @include font-size( 32px );        
+    top: -8px;
+    height: 19px;
+}
+
+.provider-list-container .provider-list-table .provider-item-container .sorting-download-speed {
+    width: 33%;
+    display: block;
+    float: left;
+    margin-bottom: 10px;
+
+    color: map-get( $color, gray-light-3 );
+    @include font-size( 10px );
+    font-weight: 400;
+    line-height: 140%;
+
+    @include desktop {
+        width: 22%;
+        display: table-cell;
+        float: none;    
+        margin-bottom: 0;        
+        @include font-size( 12px );
+    }
+}
+.provider-list-container .provider-list-table .provider-item-container .sorting-download-speed .data-cell--value {
+    display: inline-block;        
+
+    @include desktop {
+        display: block;
+    }
+}
+
+.provider-list-table .provider-item-container .sorting-monthly-repayments--mobile {
+    padding: 0 10px;
+    width: 29%;
+    display: block;
+    float: left;
+    margin-bottom: 10px;
+
+    color: map-get( $color, sky-blue-4 );
+    @include font-size( 14px );
+    font-weight: 400;
+    line-height: 140%;
+
+
+    @include desktop {
+        display: none;
+        margin-bottom: 0;
+        @include font-size( 18px );
+    }
+}
+
+.provider-list-table .provider-item-container .min-contract-length--mobile {
+    @extend .clearfix;
+    display: block;
+    padding: 0 10px;
+    @include font-size( 12px );
+
+    @include desktop {
+        display: none;
+    }    
+}
+
+.provider-list-table .provider-item-container .min-contract-length--mobile .contract-length--value {
+    float: left;
+    width: 70%;
+    text-align: left;
+}
+
+.provider-list-table .provider-item-container .min-contract-length--mobile .contract-length--value .data-cell--value {
+    display: inline-block;
+    text-align: center;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+.provider-list-table .provider-item-container .min-contract-length--mobile .contract-length--price {
+    width: 30%;
+    float: right;
+    font-size: inherit;
+    color: map-get( $color, gray-light-3 );
+    text-decoration: line-through;
+    padding-left: 16px;
+}
+
+.provider-list-container .provider-list-table .data-cell--value {
+    @include font-size( 22px );
+    font-weight: 700;
+    color: map-get( $color, black-light );
+}
+
+.provider-list-container .provider-list-table .data-cell--value.data-cell--no-contract {
+    @include font-size( 16px );
+}
+
+.provider-list-container .provider-list-table .data-cell--value.data-cell--free-to-talk {
+    @include font-size( 22px );
+}
+
+/* TOP CONTENT */
+.provider-list-container .provider-list-table .top-content {    
+    position: relative;
+    top: 0;
+
+    @include desktop {
+        position: absolute;
+        z-index: 1;
+    }
+}
+
+
+.provider-list-container .provider-list-table .sorting-provider {
+    @include desktop {
+        margin-left: -10px;    
+    }    
+}
+
+.provider-list-container .provider-list-table .sorting-provider img {
+    width: 100%;
+    max-width:  120px;
+    display: block;
+    margin: 0 auto;
+
+    @include desktop {
+        margin: 24px 0 10px;
+        width: auto;
+        display: inline-block;
+    }
+
+}
+
+
+/* PAGE NUMBERING */
+.provider-list-container .provider-item--normal .top-content .display-cell .provider-status-numbering {
+    float: left;
+    width: auto;        
+    padding: 8px;
+    margin-left: -10px;
+    color: map-get( $color, white );
+    @include font-size( 10px );
+    background-color: map-get( $color, gray-dark-1 );
+    display: none;
+
+    &:before {
+        counter-increment:     provider-item--normal;
+        content: counter(provider-item--normal) ". ";
+    }
+
+}
+
+/* CHECKBOX */
+.provider-list-container .provider-list-table .top-content .display-cell .checkbox-container {
+    background-color: map-get( $color, gray-light-5 );
+    padding: 5px;
+    float: left;
+    display: none;
+}
+
+
+
+
+/* PROVIDER STATUS TEXT */
+.provider-list-container .provider-list-table .provider-status .provider-status-text {
+    float: left;
+    padding: 4px 10px; 
+    color:  map-get( $color, white );
+    @include font-size( 10px );
+    font-weight: normal;
+}
+
+.provider-list-container .provider-list-table .sorting-monthly-repayments {
+    display: none;
+
+    @include desktop {
+        display: table-cell;
+    }
+}
+
+#product-price {
+    @include mobile {
+        display: table-cell;
+        align-self: auto;
+        border-left: 1px solid map-get( $color, cream-coconut );
+
+        padding: 20px 10px;
+        width: 39%;
+        max-width: 39%;
+    }
+}
+
+
+#product-data {   
+
+    @include mobile {
+        border-right: 1px solid map-get( $color, cream-coconut );    
+    } 
+
+}
+
+.provider-list-container .provider-list-table .sorting-view {
+    display: block;
+    width: 100%;
+
+    @include desktop {
+        display: table-cell;
+        width: 16%;
+    }
+}
+
+/* PRODUCT HOURS INCLUDED */
+#product-hours {
+    @include mobile {        
+        width: 33%;
+        max-width: 33%;
+    }
+}
+
+/* PRODUCT DATA INCLUDED */
+#product-data {
+    @include mobile {        
+        width: 28%;
+        max-width: 28%;        
+    }
+}
+
+
+/* SPONSOR STATE */
+.provider-list-container .provider-item--sponsored__unlimited .more-details--container {
+    background-color: map-get( $color, yellow-2 );
+}
+
+
+.provider-list-container .provider-item--sponsored__unlimited .provider-status .display-cell {
+
+    position: relative;
+    padding-left:     0;
+}
+.provider-list-container .provider-list-table .provider-status .display-cell {
+    vertical-align: middle;
+    padding-left: 0;
+}
+
+.provider-list-container .provider-item--sponsored__unlimited .provider-status .provider-status-numbering {
+    display: none;
+}
+
+.provider-list-container .provider-item--sponsored__unlimited {
+
+
+    @include desktop {
+        border-color: map-get( $color, yellow-2 );
+        border-style: solid;
+        border-width: 2px 2px 0 2px;    
+    }
+
+}
+
+
+.provider-list-container .provider-item--sponsored__unlimited {
+    background-color:  map-get( $color, cream );
+}
+
+
+
+/* LIMITED TIME STATE */
+.provider-list-container .top-content .display-cell .provider-status-limited {
+    float: left;
+    position: relative;
+    padding-right: 25px;
+
+    &:after {
+        content: '';
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        top:   0;
+        right: 0;
+        border-top: 9px solid transparent;
+        border-bottom: 12px solid transparent;
+        border-right: 12px solid map-get( $color, white );
+    }
+
+    & .ribbon--left {
+        background-color: map-get( $color, yellow-1 );
+        float: left;
+        padding: 3px 10px;
+        height: 27px;
+    }
+
+    & .ribbon--right {
+        background-color: map-get( $color, yellow-light-1 );
+        float: left;
+        height: 27px;
+        padding: 4px 20px 4px 10px;
+    }
+
+    & .ribbon--right span {
+        position: relative;
+        top: 4px;
+    }
+
+    /* -------------------------------------------------------------------*/
+    /*   IF ".provider-status-sponsor--ribbon" IS EXISTS                        */
+    /*   ADD CLASS: ".with-partner"  ON CLASS: ".provider-status-limited" */
+    /* -------------------------------------------------------------------*/
+    &.with-partner:after {
+        content: '';
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        top:   0;
+        right: 0;
+        border-top: 9px solid transparent;
+        border-bottom: 12px solid transparent;
+        border-right: 12px solid map-get( $color, white );        
+
+        @include desktop {
+            border-right: 12px solid map-get( $color, yellowneutral );
+
+        }
+    }
+
+}
+
+.provider-list-container .provider-item--sponsored__unlimited .top-content .display-cell .provider-status-limited {
+    &:after {
+        border-right: 15px solid map-get( $color, yellow-light-1 );   
+    }
+
+    /* -------------------------------------------------------------------*/
+    /*   IF ".provider-status-sponsor--ribbon" IS EXISTS                        */
+    /*   ADD CLASS: ".with-partner"  ON CLASS: ".provider-status-limited" */
+    /* -------------------------------------------------------------------*/
+    &.with-partner:after {
+        content: '';
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        top:   0;
+        right: 0;
+        border-top: 9px solid transparent;
+        border-bottom: 12px solid transparent;
+        border-right: 12px solid map-get( $color, yellow-light-1 );
+
+        @include desktop {
+            border-right: 12px solid map-get( $color, yellowneutral );
+
+        }
+
+        @include mobile {
+            padding-right: 23px;
+        }
+    }
+}
+
+
+/* EXCLUSIVE STATE */
+.provider-list-container .provider-list-table .top-content .display-cell .provider-status-sponsor--ribbon {
+    float: left;
+    position: relative;
+    padding: 0;
+    font-weight: 800;
+    text-transform: uppercase;
+
+    &:after {
+        content: '';
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        right: 0;
+        top:   0;
+        border-top: 13px solid transparent;
+        border-bottom: 13px solid transparent;
+        border-right: 12px solid map-get( $color, white );
+    }
+
+    & .ribbon--left {
+        background-color: map-get( $color, royal-blue-1 );
+        float: left;
+        padding: 3px 10px;
+        height: 27px;        
+
+        @include mobile {
+            padding: 3px 20px 3px 5px;
+        }
+    }
+
+    & .ribbon--right {
+        background-color: map-get( $color, sky-blue-1 );
+        float: left;
+        height: 27px;
+        padding: 4px 20px 4px 10px;
+
+        @include mobile {
+            display: none;
+        }
+    }
+
+    & .ribbon--right span {
+        position: relative;
+        top: 4px;
+    }
+
+    @include mobile {
+        text-transform: uppercase;
+    }
+
+}
+
+.provider-list-container .provider-list-table .top-content .display-cell .provider-status-sponsor--ribbon .m-cgg-icon {
+    @include font-size( 18px );
+}
+.provider-list-container .provider-list-table .top-content .display-cell .provider-status-sponsor--ribbon .sponsor-text {
+    position: relative;
+    top: -5px;
+}
+
+.provider-list-container .provider-item--sponsored__unlimited .top-content .display-cell .provider-status-sponsor--ribbon {
+
+    &:after {
+        border-right: 12px solid map-get( $color, cream );    
+    }    
+}
+
+
+
+
+/* CHECKBOX */
+.provider-list-container .provider-item--sponsored__unlimited .top-content .display-cell .checkbox-container {
+    background-color: map-get( $color, yellowneutral );
+    margin-left: -10px;
+}
+
+
+/*------------------------------------
+    MORE DETAILS
+------------------------------------*/   
+.provider-list-container .more-details--container {
+    width: 100%;
+    overflow: hidden;    
+
+    background-color: map-get( $color, yellow-light-3 );
+    @include font-size( 12px );
+    color: map-get( $color, black-light );
+
+}
+
+.provider-list-container .more-details--container .more-details--body {    
+    width: 100%;
+    display: none;
+    overflow: hidden;
+    padding: 10px 30px;
+    background-color: map-get( $color, white );
+
+
+
+}
+
+.provider-list-container .provider-item--sponsored__unlimited .more-details--container .more-details--body {    
+    @include desktop {
+        border-color: map-get( $color, yellow-2 );
+        border-width: 0 2px;
+        border-style: solid;
+    }
+}
+
+
+/* PROMO PACKAGE */
+.promo-package {
+    min-height: 68px;
+    border: 2px solid map-get( $color, sky-blue-6 );
+    padding: 10px;
+    @extend .clearfix;
+}
+
+.promo-package .shape-circle {
+    background-color: transparent;
+    display: block;
+    float: left;
+    position: relative;
+    margin: -10px;
+    height: auto;
+    width: auto;
+}
+
+.promo-package .shape-circle .cgg-icon {
+    color: map-get( $color, sky-blue-7 );
+    @include font-size( 60px );
+    margin: -10px;
+}
+
+.promo-package .promo-package-text {
+    width: calculateCurrentScreenSize( 100%, 80px );
+    color:  map-get( $color, sky-blue-7 );
+    float: left;
+    @include font-size( 14px );
+    margin-left: 10px;
+}
+
+/* BUY NOW LINK */
+.provider-list-container .more-details--container .link-buy-now {
+    text-align: center;
+    display: table;
+    width: 100%;
+    @include font-size( 14px );
+}
+
+.provider-list-container .more-details--container .link-buy-now span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/* LINK READ MORE */
+.provider-list-container .more-details--container .link-read-more {
+    color: map-get( $color,  black-light );
+    font-weight: 800;
+}
+.provider-list-container .more-details--container .link-read-more .cgg-icon {
+    @include font-size( 8px );
+}
+
+.provider-list-container .more-details--container .link-read-more--toc {
+    color: map-get( $color,  green-dark);
+    font-weight: 800;
+
+    &:hover {
+        color: map-get( $color, green-dark-3);
+    }
+}
+
+.link-buy-now .cgg-icon {
+    background-color: map-get( $color, white );
+    color: map-get( $color, orange );
+    @include font-size( 9px );
+    @include vendor-prefixed( border-radius,  20px );
+    padding: 3px 0 0 1px;
+    font-weight: 800;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin-left: 10px;
+    position: relative;
+    top: -1px;
+
+}
+
+
+/* SECTION TITLE  */
+.provider-list-container .more-details--container .more-details--body .section-title {
+    @include font-size( 14px );
+    font-weight: 800;
+    color: map-get( $color, black-light );
+}
+
+/* SECTION TABLE */
+.section-table {
+    margin: 20px 0;
+    color: map-get( $color, black-light );
+
+    @include tablet-landscape {
+        display: block !important;
+    }
+
+    @include medium-desktop {
+        display: block !important;
+    }
+}
+.section-table .section-table-tr {
+
+    @extend .clearfix;    
+    padding:  2px;
+    border-bottom: 1px solid map-get( $color, gray-light-4 );
+}
+
+.section-table .section-table-tr.section-table-tr--with-padding {
+    /* padding:  2px 18px 2px 2px; */
+}
+
+.section-table-tr.price-calc--total {
+    border-top: 2px solid map-get( $color, black-light );
+    border-bottom: 2px solid map-get( $color, black-light );    
+}
+
+.section-table-tr.section-table-tr-border-bottom-light {
+    border-bottom: 1px solid map-get( $color, gray-light-4 );
+}
+
+.section-table-tr.section-table-tr-border-top-light {
+    border-top: 1px solid map-get( $color, gray-light-4 );
+}
+
+
+.section-table-tr.section-table-tr-border-bottom-heavy {
+    border-bottom: 1px solid map-get( $color, black-light );
+}
+
+.section-table-tr.section-table-tr-border-top-heavy {
+    border-top: 1px solid map-get( $color, black-light );
+}
+
+.section-table-tr.section-table-tr-border-bottom-double-heavy {
+    border-bottom: 2px solid map-get( $color, black-light );
+}
+
+.section-table-tr.section-table-tr-border-top-double-heavy {
+    border-top: 2px solid map-get( $color, black-light );
+}
+.section-table-tr.section-table-tr-border-bottom-none {
+    border-bottom: transparent;
+}
+.section-table .price-calc--total-contract-length {
+    border-top: 0 transparent;
+    padding-top: 0;
+} 
+
+/* FEATURES */
+.more-details--features-section .section-table .section-table-tr {
+    display: table;
+    width: 100%;
+    line-height: 150%;
+}
+.more-details--features-section .section-table .section-table-tr .cgg-icon {
+    display: table-cell;
+    width: 20px;
+}
+
+/* SECTION COMPANY WORKING HOURS */
+.provider-list-container .more-details--container .more-details--body .section-company-working-hours {
+    margin: 10px auto;    
+    /*padding: 20px 15px;*/
+    /*border: 1px solid map-get( $color, gray-light-4 );*/
+    text-align: center;    
+    display: table;
+}
+
+.provider-list-container .more-details--container .more-details--body .section-company-working-hours .section-company-working-hours--text.or-text {
+    margin-right: 10px;
+    color: map-get( $color, black-light );
+}
+
+
+.provider-list-container .more-details--container .more-details--body .section-company-working-hours  .section-company-working-hours--text {
+    float: left;
+    margin: 12px 0 0;
+    color: map-get( $color, orange );
+}
+
+.provider-list-container .more-details--container .more-details--body .section-company-working-hours .shape-circle {
+    background-color: map-get( $color, orange );
+    width: 36px;
+    height: 36px;
+}
+
+.provider-list-container .more-details--container .more-details--body .section-company-working-hours .shape-circle .m-cgg {
+    color: map-get( $color, white );
+}
+
+.provider-list-container .more-details--container .more-details--body .section-company-working-hours .business-hours-schedules .clearfix {
+    margin-bottom: 4px;
+}
+
+
+/* PROVIDER SPONSOR STATUS ON MORE INFO */
+.provider-list-container .more-details--container .more-details--body .provider-status-sponsor--more-info {
+    color: map-get( $color, royal-blue-2 );
+    font-weight: bold;
+}
+
+.provider-list-container .more-details--container .more-details--body .provider-status-sponsor--more-info .sponsor-text {
+    position: relative;
+    top: -6px;
+    text-transform: uppercase;
+}
+
+.provider-list-container .more-details--container .more-details--body .provider-status-sponsor--more-info .m-cgg-icon {
+    @include font-size( 24px );
+}
+
+.provider-list-container .more-details--container .more-details--body .provider-status-sponsor--more-info .provider-status-sponsor--more-info-text {
+    font-weight: normal;
+    margin-left: 30px;
+}
+/* PRICE CALCULATION */
+/* .provider-list-container .more-details--container .more-details--body .section-price-calc .section-table-tr {
+
+    padding:       2px 2px 2px;    
+    margin-bottom:          0;
+    border-bottom: 0 transparent;
+    border-top: 1px solid map-get( $color, gray-light-4 );
+
+    &:first-child {
+        border-top: 0 transparent;
+        padding-top: 0;
+    }
+}
+
+
+
+*/
+
+.provider-list-container .more-details--container .more-details--body .offer-reference-text {
+    width: 100%; 
+    text-align: center;
+    color: map-get( $color, black-light ); 
+    border-bottom: 1px solid map-get( $color, gray-light-4 ); 
+    line-height: 0.1em; 
+    margin: 30px 0 20px;
+
+    @include mobile {
+        display: none;
+    }
+}
+
+.provider-list-container .more-details--container .more-details--body .offer-reference-text span {
+    background: map-get( $color, white );
+    padding: 0 10px;
+    font-style: italic;
+    @include font-size( 12px );
+}
+
+.provider-list-container .more-details--container .more-details--footer {
+    padding: 5px 10px 2px;
+    overflow: hidden;
+    color: map-get( $color, black-light );
+    display: none;
+    @include font-size( 10px );
+
+    @include desktop {
+        display: block;
+    }
+
+}
+
+.provider-list-container .more-details--container .more-details--footer-left {
+    float: left;
+}
+
+.provider-list-container .more-details--container a.more-details--footer-right {
+    float: right;
+
+    &,
+    &:hover,
+        &:focus {
+        color: map-get( $color, black-light );
+        text-decoration: none;
+    }   
+}
+
+/*------------------------------------
+    DISCOUNT TAG'S
+------------------------------------*/   
+.discount-tag-container {
+    width: 100%;
+    position: absolute;
+    top:   0;
+    right: 0;
+
+
+
+    &.discount-tag-container--mobile {
+        position: absolute;
+        top: 0;
+        display: block;
+
+        @include desktop {
+            display: none;
+        }
+    }
+
+    @include mobile {
+        position: relative;
+        top: -43px;
+        right: -11px;
+
+    }
+}
+
+.provider-item--normal .discount-tag-container {
+    @include desktop {
+        width: calc(100% + 20px);
+        background-color: inherit;  
+    }    
+}
+
+.discount-tag-container .discount-tag-shape__triangle {
+    width: 0;
+    height: 0;
+    right: 0;
+    border-top: 50px solid map-get( $color, sky-blue-3 );
+    border-left: 50px solid transparent;
+    position: absolute;
+    z-index: 1;
+}
+
+.discount-tag-container .discount-tag-text {
+
+    top: 10px;
+    right: -5px;
+    z-index: 2;    
+    text-align: center;
+    position: absolute;    
+    width: 50px;    
+
+    @include font-size ( 12px );
+    color: map-get( $color, white );    
+    @include vendor-prefixed( transform,  rotate(45deg) );
+
+    //IE8 HACK
+    .cgg-comparison-widget.ie8 &{
+        -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(SizingMethod='auto expand', M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476)"; /* IE8 */        
+    }        
+}
+
+.provider-item--normal .discount-tag-container .discount-tag-text {
+    @include mobile {
+        right: -6px;
+    }
+}
+
+/*------------------------------------
+    MONTHLY REPAYMENTS
+------------------------------------*/  
+.monthy-repayments-value-container {
+
+}
+
+.monthy-repayments-value-container .monthy-repayments-actual-value {
+    font-weight: bold;
+    @include font-size( 22px );
+    color: map-get( $color, sky-blue-4 );
+
+    @include mobile {
+        color: map-get( $color, black-light );
+        text-align: right;
+    }
+}
+
+.monthy-repayments-value-container .monthy-repayments-before-value {
+
+    padding-bottom: 2px;
+    margin-bottom:  6px;
+    @include font-size( 11px );
+    text-decoration: line-through;
+    color: map-get( $color, gray-light-3 );
+    border-bottom: 1px solid map-get( $color, gray-light-3 );
+
+    @include mobile {
+        display: none;
+    }
+}
+
+.monthy-repayments-value-container .monthy-repayments-other-value {
+    margin-bottom: 4px;
+
+    @include mobile {
+        text-align: right;
+    }
+}
+
+.monthy-repayments-value-container .monthy-repayments-other-value span {
+    @include font-size( 9px );   
+    color: map-get( $color, gray-light-3 );
+
+    @include mobile {
+        @include font-size( 12px );
+        float: none;
+        text-align: right;
+    }
+}
+
+.monthy-repayments-value-container .monthy-repayments-other-value .monthy-repayments-other--left-text {
+    float: left;
+    @include mobile {
+        display: block;
+        float: none;
+
+        &::after {
+            content: ": ";
+        }
+    }
+}
+
+.monthy-repayments-value-container .monthy-repayments-other-value .monthy-repayments-other--right-text {
+    float: right;
+    @include mobile {
+        display: block;
+        float: none;
+    }
+}
+
+
+
+.result-body .provider-list-container .provider-list-table .display-cell.sorting-view {
+    color: map-get( $color, orange );
+    text-align: center;
+}
+
+
+.result-body .provider-list-container .provider-list-table .display-cell.sorting-view span .cgg-icon {
+    display: inline-block;
+    background-color: map-get( $color, white );
+    color: map-get( $color, orange );
+    @include font-size( 9px );
+    @include vendor-prefixed( border-radius,  20px );
+    padding: 3px 0 0 1px;
+    font-weight: 800;
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    top: -2px;
+    position: relative;
+
+    @include desktop {
+        display: none;
+    }
+}
+
+.result-body .sorting-container .provider-data-container .detect-child-element--cell.sorting-view {
+    color: map-get( $color, orange );
+}
+
+.result-body .sorting-container .provider-data-container .detect-child-element--cell.sorting-view .btn--orange {
+    margin-top: 0;
+
+    @include mobile {
+        width: 70%;
+        float: right;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-right: -1px;
+
+        @include vendor-prefixed( box-shadow, none );
+        @include vendor-prefixed( border-radius, 0 );
+    }
+}
+
+.result-body .sorting-container .provider-data-container .detect-child-element--cell.sorting-view .btn--orange span {
+    @include font-size( 11px );
+    font-weight: 800;
+}
+
+.result-body .sorting-view .or-call {
+    @include font-size( 11px );
+    margin: 4px 0 0;
+}
+
+.result-body .sorting-view .phone-no {
+    font-weight: 800;
+    @include font-size( 16px );    
+    text-decoration: underline;
+    margin-bottom: 4px;
+    letter-spacing: -1px;
+}
+
+.result-body .sorting-view-footer--mobile {
+    @extend .clearfix;
+    float: left;
+    width: 30%;
+    vertical-align: middle;    
+
+    @include desktop {
+        display: none;
+    }
+
+
+}
+.result-body .sorting-view-footer--mobile .sorting-view-footer--left {
+    display: table-cell;
+    width: 30%;
+}
+
+.result-body .sorting-view-footer--mobile .sorting-view-footer--left a {
+    color: map-get( $color, gray-3 );
+    float: left;
+    text-align: center;
+
+    padding: 14px 10px 15px;
+    width:100%;
+}
+
+.result-body .sorting-view-footer--mobile .sorting-view-footer--left a span {
+    @include font-size( 14px );
+    top: 4px;
+    position: relative;
+    color: map-get( $color, gray-3 );
+
+    &:before {
+        display: inline-block;
+    }
+}
+
+.result-body .sorting-view-footer--mobile .sorting-view-footer--right {
+    display: table-cell;
+    width: 70%;
+    text-align: right;
+}
+
+.result-body .sorting-view-footer--mobile .sorting-view-footer--right div {
+    display: inline-block;
+    @include font-size( 14px );
+}
+
+
+
+
+
+/*------------------------------------
+    PRODUCT ITEM MORE DETAILS MOBILE
+------------------------------------*/
+.provider-item--mobile-container {
+    display: none;
+    position: fixed;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    top: 60px;
+    left: 0;
+    bottom: 0;
+}
+
+.provider-item--mobile {
+    margin: 0;
+}
+
+.provider-item--mobile .provider-list-container {
+    width: 100%;
+    display: block;
+    margin: 0;
+}
+
+.provider-item--mobile .provider-list-container .btn {
+    @include font-size( 18px );
+}
+
+.provider-item--mobile .provider-list-container .btn i {
+    position: relative;
+    top: -2px;
+}
+
+.provider-item--mobile .provider-list-container .provider-list-table {
+    width: calculateCurrentScreenSize(100%, 2px);
+    margin: 0 0 10px;
+    padding: 10px 15px;
+    background-color: map-get( $color, white );    
+}
+
+
+/* PROVIDER LOGO */
+.provider-item--mobile .provider-logo {
+    padding: 10px;
+}
+
+.provider-item--mobile .provider-logo img {
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    height: auto;
+}
+
+/* PROVIDER BORDER BOTTOM */
+.provider-item--mobile .provider-box--border-bottom {
+    border-bottom: 1px solid map-get( $color, gray-light-5 );
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    margin-left: -14px;
+    margin-right: -14px;
+}
+
+/* PROVIDER BORDER TOP */
+.provider-item--mobile .provider-box--border-top {
+    border-top: 1px solid map-get( $color, gray-light-5 );
+    padding-top: 10px;
+    margin-top: 10px;
+    margin-left: -14px;
+    margin-right: -14px;
+}
+
+.provider-item--mobile .provider-list-container .provider-item--sponsored__unlimited .display-row {
+    background-color: transparent;
+}
+
+.provider-item--mobile .provider-status {
+    @include font-size( 14px );   
+    padding-left: 14px;
+    padding-right: 14px; 
+}
+
+.provider-item--mobile .provider-status .display-table {
+    margin: 0 auto 20px;
+}
+
+.provider-item--mobile .provider-status .display-table .display-cell {
+    vertical-align: middle;
+    position: relative;
+    padding: 3px 0 3px 20px;
+}
+
+.provider-item--mobile .provider-status .display-table .display-cell i {
+    color: map-get( $color, green-mint );
+    position: absolute;
+    top: 6px;
+    left: 0;
+}
+
+.provider-item--mobile .provider-status .contact-no {
+    text-align: center;
+    color: map-get( $color, orange );
+    @include font-size( 14px );
+    margin-top: 15px;
+}
+
+.provider-item--mobile .provider-status .limited-time {
+    color: map-get( $color, gray-light-3 );
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.provider-item--mobile .provider-item--sponsored__unlimited .display-table--item:first-child {
+    border: 0 solid transparent;
+}
+
+
+.provider-item--mobile .provider-list-container .sorting-monthly-repayments {
+    display: block;
+    margin: 15px -15px;
+    background-color: map-get( $color, yellow-light-3 );
+    text-align: center;
+}
+
+.provider-item--mobile .provider-list-container .sorting-monthly-repayments .discount-tag-container {
+    margin-right: 0;
+    height: 20px;
+    float: none;
+}
+
+.provider-item--mobile .provider-list-container .sorting-monthly-repayments .discount-tag-container .discount-tag-text {
+    top: 9px;
+    right: -3px;
+    @include font-size( 10px );
+}
+
+.provider-item--mobile .provider-list-container .sorting-monthly-repayments .discount-tag-container .discount-tag-shape__triangle {
+    border-top-width: 45px;
+    border-left-width: 45px;
+}
+
+.provider-item--mobile .provider-list-container .contract-length {    
+    font-weight: 600;
+    @include font-size( 16px );
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.provider-item--mobile .provider-list-container .monthy-repayments-before-value {
+    border-bottom: 0 solid transparent;
+}
+
+.provider-item--mobile .provider-list-container .monthy-repayments-other-value {
+    display: table;
+    min-width: 150px;
+    width: auto;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    padding-top: 4px;
+    border-top: 1px solid map-get( $color, gray-light-3 );
+}
+.provider-item--mobile .provider-list-container .monthy-repayments-other-value span {
+    @include font-size( 12px );
+}
+
+.provider-item--mobile .provider-list-container .monthy-repayments-actual-value .monthy-repayments--currency {
+    font-weight: 600;
+    @include font-size( 13px );
+}
+
+.provider-item--mobile .provider-list-container .monthy-repayments-before-value {
+    text-decoration: none;
+}
+
+.provider-item--mobile .provider-list-container .monthy-repayments-before-value span {
+    text-decoration: line-through;
+}
+
+.provider-item--mobile .provider-list-container .monthly-payment-download-speed {
+    padding-top:    15px;
+    padding-bottom: 15px;
+    margin-bottom:   0;
+}
+
+.provider-item--mobile .provider-list-container .monthly-payment-download-speed--text {
+    @include font-size( 14px );
+}
+
+.provider-item--mobile .provider-list-container .monthly-payment-download-speed--value {
+    font-weight: 600;
+    @include font-size( 18px );
+}
+
+.provider-item--mobile .provider-list-container .monthly-payment-download-speed--value span {
+    @include font-size( 18px );   
+}
+
+
+/* PROMO PACKAGE */
+.provider-item--mobile .provider-list-container .more-details--container .more-details--body .link-read-more {
+    @include font-size( 10px );
+    width: inherit;
+    display: block;
+    margin-bottom:  10px;
+    margin-left:   -14px;
+    margin-right:  -14px;
+    padding-bottom: 10px;
+    padding-right:  14px;
+    padding-left:   14px;
+    border-bottom: 1px solid map-get( $color, gray-light-4 );
+}
+
+.provider-item--mobile .provider-list-container .more-details--container .more-details--body .link-read-more i {
+    @include font-size( 12px );
+    margin-top: 2px;
+}
+
+.provider-item--mobile .provider-list-container .more-details--container .more-details--body {
+    display: block;
+    padding: 10px 0;
+}
+.provider-item--mobile .provider-list-container .more-details--container .more-details--body,
+.provider-item--mobile .provider-list-container .more-details--container {
+    overflow: inherit;
+}
+
+/* CALL US */
+.provider-item--mobile .provider-list-container .more-details--container .more-details--body .section-company-working-hours {
+    padding: 10px 15px;
+}
+
+.provider-item--mobile .provider-list-container .more-details--container .more-details--body .section-company-working-hours .shape-circle {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+}
+
+/* ORANGE COLOR BUTTON */
+.provider-item--mobile .btn {
+    padding: 10px;
+}
+
+.provider-item--mobile .btn span {
+    margin: 0 auto;
+    display: table;
+}
+
+.provider-item--mobile .btn span i {
+    display: inline-block;
+    background-color: map-get( $color, white );
+    color: map-get( $color, orange );
+    @include font-size( 9px );
+    @include vendor-prefixed( border-radius,  20px );
+    padding: 3px 0 0 1px;
+    font-weight: 800;
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    margin-top: -4px;
+}
+
+
+.section-title {
+    @include font-size( 12px );
+    font-weight: 700;
+
+    @include desktop {
+        @include font-size( 14px );
+    }
+
+    @include mobile {
+        & {
+            cursor: pointer;
+        }
+    }
+}
+
+.section-table {
+    margin: 10px 0 15px;
+}
+.section-table-tr {
+    @include font-size( 12px );
+}
+
+/* TOP SPONSOR STATUS */
+.provider-item--container:last-child {
+    margin-bottom: 10px;
+}
+
+/* TOP SPONSOR STATUS */
+.provider-item--container .detect-child-element--container.provider-item-sponsored--container {
+    margin-top: 10px;
+    color: map-get( $color, royal-blue-1 );
+    @include font-size( 11px );
+
+    width: calculateCurrentScreenSize(100%, 20px);
+    width: 98%\9; /* IE9 */
+
+
+}
+
+.provider-item--container .provider-item-sponsored--container .provider-item-sponsored--value {
+    float: left;
+    padding: 5px 15px 2px 5px;
+    font-weight: 600;
+}
+
+.provider-item-sponsored--status-container {
+    position: relative;
+    float: left;
+    background-color: map-get( $color, white );
+    @include vendor-prefixed( border-radius, 0 10px 0 0 );
+}
+
+.provider-item--container .provider-item-sponsored--container .provider-item-sponsored--border-right {
+    float: left;
+    width: 0;
+    height: 0;
+    border-bottom: 18px solid map-get( $color, white );
+    border-right: 18px solid transparent;
+    position: relative;
+    bottom: 0;
+    right: -17px;
+    position: absolute;
+}
+
+.provider-item--container .detect-child-element--container.provider-item-sponsored--container .pull-right {
+    @include font-size( 10px );
+    color: map-get( $color, gray-dark-2 );
+}
+
+/* PROVIDER LOGO */
+#provider-item-logo {
+    @include desktop {
+        width: 11.5%;
+    }
+}
+
+.provider-item-logo img {
+    width: 40%;
+
+    @include mobile {
+        float: left;    
+    }
+
+
+    @include desktop {
+        width: 100%;
+    }
+
+}
+
+
+.provider-item-logo .provider-item--description {
+    display: block;
+    color: map-get( $color, black-light );
+
+    @include mobile {
+        @include font-size(14px);
+        float: right;
+        width: 50%;
+        text-align: left;
+    }
+
+
+    @include desktop {
+        display: none;
+    }
+}
+
+
+/* Feature list SIM */
+#product-features {
+
+    vertical-align: middle;
+
+    @include mobile {
+        display: none;
+    }
+}
+
+.feature-list {
+    list-style-type: none;
+    color: map-get( $color, black-light );
+    text-align: left;
+    @include font-size( 10px );    
+    padding: 0;
+    margin: 0;
+}
+.feature-list li {
+    padding: 0;
+    margin-bottom: 10px;
+    display: table;
+    border-spacing: 5px 0;
+    vertical-align: top;
+}
+
+.feature-list li:last-child {
+    margin-bottom: 0px;
+}
+
+.feature-list li i {
+    display: table-cell;
+}
+
+.provider-data-container > .detect-child-element--cell.provider-item-logo {
+    margin-bottom: 15px;   
+}
+
+.provider-data-container > .detect-child-element--cell.sorting-view {
+
+    @include mobile {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: table-caption;
+        caption-side:bottom;
+        padding: 0;
+        margin-top: 15px;
+    }
+
+}
+
+
+/* DISPLAY NONE */
+.result-body .sorting-container .provider-data-container .detect-child-element--cell:nth-child(2){
+    @include mobile {
+        display: none;
+    }
+}
+
+.result-body .container {
+    @include mobile {
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+
+.result-body .sorting-container .provider-data-container .detect-child-element--cell:nth-child(3),
+.result-body .sorting-container .provider-data-container .detect-child-element--cell:nth-child(4),
+.result-body .sorting-container .provider-data-container .detect-child-element--cell:nth-child(5) {
+    @include mobile {     
+        padding: 20px 10px;
+        text-align: right;
+        vertical-align: top;
+    }   
+}
+
+.result-body .sorting-container .provider-item--sponsored__unlimited .provider-data-container .detect-child-element--cell:nth-child(3),
+.result-body .sorting-container .provider-item--sponsored__unlimited .provider-data-container .detect-child-element--cell:nth-child(4){
+    @include mobile {
+        border-right: 1px solid map-get( $color, cream-coconut );
+    }
+}
+
+[data-toggle="collapse"] {
+    .collapse-out,
+    .collapse-in {
+        display: none;
+    }
+
+    &[aria-expanded="true"] {
+        .collapse-out {
+            display: block;
+        }
+    }
+
+    &[aria-expanded="false"] {
+        .collapse-in {
+            display: block;
+        }
+    }
+}

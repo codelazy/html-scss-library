@@ -1,0 +1,259 @@
+/*
+ *
+ *  TTTLE:        GLOBAL FORM LAYOUT
+ *  Description:  A collection of different "Form layout" wich you can call thru they're assigned classes
+ *
+ *
+*/
+
+/*------------------------------------
+    ORDER FORM
+------------------------------------*/
+.order-form--popup-modal .modal-dialog {
+    margin: 0;
+    width: 100%;    
+    max-width: 100%;    
+
+    @include desktop {        
+        margin: 10px auto;
+        max-width: 748px;
+    }
+}
+
+.order-form--popup-modal,
+.order-form--popup-modal .modal-body {
+    @include font-size( 12px );
+
+    @include mobile {
+        padding: 0;
+    }
+}
+
+@include mobile {
+    .order-form--popup-modal .modal-dialog .modal-content {
+        @include vendor-prefixed( box-shadow, none );
+        @include vendor-prefixed( border-radius, 0 );
+        border: 0;
+    }
+}
+
+
+
+.order-form--popup-modal .btn-close {
+    margin-top:   0;
+    margin-right: 0;
+    display: none;
+
+    @include desktop {
+        display: block;
+    }
+}
+
+.order-form--popup-modal .modal-header {
+    @include mobile {
+        padding: 0;
+        height: 60px;
+
+        .modal-container {
+            margin: 0;
+        }
+    }
+}
+
+.order-form--popup-modal .modal-header .mobile--header {
+    display: none;
+
+    @include mobile {
+        display: block;
+        background: map-get( $color, dodger-blue );
+        padding: 10px;
+        height: 60px;
+    }
+}
+
+.order-form--popup-modal .modal-header .mobile--header .mobile--header-title {
+    float: left;
+    padding: 13px 0 0 20px;
+    width: auto;
+    color: map-get( $color, white );
+    font-weight: bold;
+    @include font-size( 14px );
+}
+
+.order-form--popup-modal .modal-header .mobile--header a {
+    float: left;
+    margin: 10px 0 0 5px;
+}
+
+.order-form--popup-modal .modal-header .mobile--header a i {
+    @include font-size( 24px );
+    color: map-get( $color, white );
+}
+
+.order-form--popup-modal .modal-title {
+    margin-top: 0;
+    @include font-size( 14px );
+    display: none;
+
+    @include desktop {
+        @include font-size( 24px );    
+        display: block;
+    }
+}
+
+.order-form--popup-modal .order-form--description {
+    margin: 0;
+    font-weight: 800;
+    text-align: center;
+    @include font-size( 12px );
+    display: none;
+
+    @include desktop {
+        display: block;
+    }
+}
+
+.order-form--more-info {
+    @include mobile {
+        &[data-state="expanded"] {
+            border-bottom: 1px solid map-get( $color, gray-light-4 );
+        }
+
+        &[data-state="collapsed"] {
+            display: none;
+        }
+    }
+}
+
+.order-form--more-info--actions {
+    padding: 10px 0 20px;
+
+    @include desktop {
+        display: none;
+    }
+}
+
+.order-form--more-info--actions[data-state="expanded"] .excerpt-calculation {
+    display: none;
+}
+
+.order-form--more-info--actions .excerpt-calculation {
+    float: left;
+    @include font-size( 12px );
+
+    .price {
+        font-weight: bold;
+    }
+}
+
+.order-form--more-info--actions .more-info--footer-right {
+    float: right;
+
+    a {
+        font-weight: bold;
+        color: map-get( $color, gray-31 );
+    }
+}
+
+.order-form--popup-modal {
+    @include mobile {
+        background: #fff;
+        height: 100%;
+    }
+}
+
+.result-body .order-form--popup-modal .form-input--libris {
+    margin-bottom: 10px;
+}
+
+.result-body .order-form--popup-modal,
+.result-body .order-form--popup-modal .btn, 
+.result-body .order-form--popup-modal .btn-global,
+.result-body .order-form--popup-modal .form-input--libris,
+.result-body .order-form--popup-modal .form-input--libris label span {
+    @include font-size( 12px );
+}
+
+.result-body .order-form--popup-modal .link-terms {
+    color: map-get( $color, green-mint );
+}
+
+.result-body .order-form--popup-modal .btn.link-buy-now {
+    margin-top: 0;
+    padding: 13px 10px;
+}
+
+/* LOGO */
+.order-form--popup-modal .modal-body .provider-logo {
+    margin-top: 10px;  
+    margin-bottom: 10px;  
+    display: table;
+    width: 100%;
+
+    @include desktop {
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left:    0;
+        display: block;
+    }
+}
+
+.order-form--popup-modal .modal-body .provider-logo img {
+    display: table-cell;
+    vertical-align: middle;
+
+    @include desktop {
+        display: block;
+    }
+
+
+}
+
+.order-form--popup-modal .modal-body .provider-logo  .order-form--description {
+    display: table-cell;
+    vertical-align: middle;
+
+    @include desktop {
+        display: none;
+    }
+}
+
+/* ORDER TABLE  */
+.section-table--order-form-popupmodal .section-table-tr {
+    padding-bottom: 4px;
+    margin-bottom:  4px;
+
+    &:last-child {
+        border-bottom: transparent;
+    }
+}
+
+/* FORM */
+.order-form--popup-modal .form-input--libris {
+    margin-bottom: 10px;
+}
+
+.order-form--popup-modal .form-input--libris label span {
+    @include font-size( 13px );
+}
+
+.order-form--popup-modal .btn, 
+.order-form--popup-modal .btn-global {
+    @include font-size( 13px );
+}
+
+.order-form--popup-modal .link-terms {
+    color: map-get( $color, green-mint );
+}
+
+.order-form--popup-modal .btn-close {
+    top: 25px;
+}
+
+.order-form--popup-modal .modal-container p {
+    color: map-get( $color, white );
+
+    @include mobile {
+        display: none;
+    }
+}

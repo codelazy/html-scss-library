@@ -1,0 +1,149 @@
+/*
+ *
+ *  TTTLE:        GLOBAL FORM LAYOUT
+ *  Description:  A collection of different "Form layout" wich you can call thru they're assigned classes
+ *
+ *
+*/
+
+/*------------------------------------
+    TEXT INPUT
+------------------------------------*/
+.form-input--libris input {
+    outline: none;
+    width: 100%;
+    padding: 5px 0;
+    border: none;
+    border-bottom: 1px solid  map-get( $color, gray-light-1 );
+    @include vendor-prefixed( border-radius, 0 );
+    font-weight: 500;
+
+    &:focus {
+        border-bottom: 1px solid  map-get( $color, green-dark );
+    }
+
+
+    @include desktop {
+        @include vendor-prefixed( border-radius, 3px );
+        height: 46px;
+        border: 1px solid  map-get( $color, gray-light-1 );
+        padding: 10px;
+
+        &:focus {
+            border: 1px solid  map-get( $color, green-dark );
+        }
+    }
+
+
+}
+
+
+
+/*------------------------------------
+    ERROR HANDLING MESSAGE
+------------------------------------*/
+.form-input--libris {
+    .error-message {
+        display: none;
+        margin: 4px 0 8px;
+    }
+
+    & .error .error-message {
+        display: block;
+        color: map-get( $color, dark-orange );
+    }
+
+    & .error input {
+        border-bottom: 1px solid  map-get( $color, dark-orange );
+    }    
+
+
+    @include mobile {
+        & span.field-title {
+            color: transparent;
+        }
+
+        & .active-field--selected span {
+            color: map-get($color, gray-light );
+        }
+
+        & .active-field--current span {
+            color: map-get($color, green-dark );
+        }
+
+        & .error span {
+            color: map-get( $color, dark-orange );
+
+        }
+
+    }
+
+    @include desktop {
+        & .error input {
+            border: 1px solid  map-get( $color, dark-orange );
+        }    
+    }
+}
+
+
+
+
+/*-------------------------------------------
+    CHECKBOX THEMES
+---------------------------------------------*/
+.form-input--libris .input-group.checkbox {
+    cursor: pointer;
+
+    &:hover .checkbox-theme--black {
+        background: map-get($color, green-superlight);
+        border: 1px solid map-get($color, green-dark);
+
+        &.checked {
+            background: 
+                map-get($color, green-mint) 
+                url("//media.compargo.com/dk/carinsurance/check.png")
+                no-repeat -3px -1px;
+            border: 1px solid map-get($color, green-dark);
+        }
+    }
+
+    .checkbox-theme--black.checked {
+        background: 
+            map-get($color, green-mint) 
+            url("//media.compargo.com/dk/carinsurance/check.png")
+            no-repeat -3px -1px;
+        border: 1px solid map-get($color, green-dark);
+    }
+}
+
+.checkbox-theme--black {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    top: 4px;
+    border: 1px solid  map-get( $color, gray-1 );
+
+    @include vendor-prefixed( border-radius, 2px );
+}
+
+.checkbox-theme--black input[type="checkbox"] {
+    height: auto;
+    cursor: pointer;
+    @include vendor-prefixed( opacity, 0 );
+}
+
+.funnel-email--checkbox {
+    margin: 4px 0;
+}
+
+
+
+
+/*---------------------------------------------------------
+    OVERRIDE PLACEHOLDER FONT COLOR ON ALL BROWSERS
+------------------------------------------------------------*/
+@include placeholder {
+    color:  map-get( $color, gray-light-5 );
+}

@@ -1,0 +1,145 @@
+/**
+ * -------------------------------------------------------------
+ *
+ *     CSS Name: BUTTON AND ANCHOR LAYOUT
+ *  Description: All button and anchor layout must be here.
+ * 
+ * -------------------------------------------------------------
+ */
+
+
+
+
+
+.btn-global {
+    background: map-get( $color, white );
+
+    padding: 15px;
+    display: block;
+    font-weight: 600;
+    cursor: pointer;
+    height: 100%;
+
+    color: map-get( $color, gray-light );
+    border: 1px solid map-get( $color, gray-light-1 );
+
+    @include font-size( 14px );    
+    @include vendor-prefixed( border-radius, 3px );
+    @include vendor-prefixed( box-shadow, inset 0 -5px 0 0 map-get( $color, white-dirty ) );
+    @include vendor-prefixed( transition, all 0.2s ease );
+
+
+    &.has-selected  {
+
+        background: #77aa43;
+
+        color: map-get( $color, white );
+        @include vendor-prefixed( box-shadow, inset 0 5px 2px 0 map-get( $color, green-1 ) );
+        border: 1px solid map-get( $color, green-dark-1 );
+
+    }
+
+
+    // For Desktop only
+    @include desktop {
+         &:hover {
+            background: #77aa43;
+        
+            color: map-get( $color, white );
+            @include vendor-prefixed( box-shadow, inset 0 5px 2px 0 map-get( $color, green-1 ) );
+            border: 1px solid map-get( $color, green-dark-1 );       
+        }
+    }
+}
+
+.btn-global:hover .btn-radio {
+    color: map-get( $color, white );
+    @include vendor-prefixed( transition, color 300ms ease-in-out );
+}
+
+
+.btn--white {
+
+    @extend .btn-global; 
+
+    background: map-get( $color, white );
+
+}
+
+.btn--orange {
+
+    @extend .btn-global; 
+
+    color: map-get( $color, white );
+    background: map-get( $color, orange );
+    border-color: map-get( $color, dark-orange );
+    @include vendor-prefixed( box-shadow, inset 0 -5px 0 0 map-get( $color, dark-orange ) );
+
+    &:hover,
+    &:focus,
+        &:active {
+        color: map-get( $color, white );
+        background-color: map-get( $color, orange );
+        border-color: map-get( $color, orange );
+        @include vendor-prefixed( box-shadow, inset 0 5px 2px 0  map-get( $color, dark-orange ) );
+    }
+
+    // For Desktop only
+    @include desktop {
+        &:hover {
+            background-color: map-get( $color, orange );
+            border-color: map-get( $color, orange );
+            @include vendor-prefixed( box-shadow, inset 0 5px 2px 0  map-get( $color, dark-orange ) );
+        }
+    }
+
+}
+
+.btn--green {
+    
+    @extend .btn-global; 
+    
+    color: map-get( $color, white );
+    background: map-get( $color, green-dark );
+    border-color: map-get( $color, green-dark );
+    @include vendor-prefixed( box-shadow, inset 0 -5px 0 0 map-get( $color, green-dark-3 ) );
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: map-get( $color, green-dark );
+        border-color: map-get( $color, green-dark );
+        @include vendor-prefixed( box-shadow, inset 0 5px 2px 0  map-get( $color, green-dark-3 ) );
+    }
+    
+}
+
+
+
+.btn-link--green {
+
+    font-weight: bold;
+    @include font-size( 12px );
+
+
+    &,
+    &:focus {
+
+        color: map-get( $color, green-dark );
+
+
+    }
+
+    // For Desktop only
+    @include desktop {
+        &:hover {
+            color: map-get( $color, green-dark );
+        }
+    }
+}
+
+.disabled,
+disabled {
+    cursor: default;
+    @include vendor-prefixed( opacity, .5 );
+}

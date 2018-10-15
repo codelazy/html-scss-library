@@ -1,0 +1,131 @@
+/**
+ * ------------------------
+ *
+ *     CSS Name: YOUR SUMMARY FUNNEL
+ *  Description: 
+ * 
+ * --------------------------
+ */
+ 
+$topOffset : 30%;
+
+.your-summary-overlay {
+    display: none;
+    @include mobile {
+        background: rgb(0, 0, 0);
+        opacity: 0;
+        pointer-events: none;
+        @include vendor-prefixed( transition, all 300ms ease-in-out );
+    }
+}
+
+.your-summary-overlay.active {
+    @include mobile {
+        background: rgb(0, 0, 0);
+        display: block;
+        height: 100%;
+        left: 0;
+        opacity: 0.5;
+        pointer-events: auto;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: map-get( $z-index, summary-overlay );
+    }
+}
+
+.your-summary-container {
+    @include mobile {
+        left: 0;
+        height: 100% - $topOffset;
+        height: calc(#{100% - $topOffset} - 53px);
+        overflow: scroll;
+        position: fixed;
+        top: calc(100% + 53px);
+        width: 100%;
+        z-index: map-get( $z-index, summary-container--fixed );
+        @include vendor-prefixed( transition, all 300ms ease-in-out );
+    }
+}
+ 
+.your-summary-container.active {
+    @include mobile {
+        background: map-get( $color, white-dirty );
+        display: block;
+        top: calc(#{$topOffset} + 53px);
+    }
+}
+
+.your-summary-container.active .box-container--splitter {
+    @include mobile {
+        display: none;
+    }
+}
+
+.your-summary-container--mobile {
+    background-color: #165072;
+    color: #ffffff;
+    padding: 10px 15px;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: calc(100% - 53px);
+    height: 53px;
+    z-index: map-get( $z-index, summary-container--fixed );
+    @include vendor-prefixed( transition, all 300ms ease-in-out );
+    
+    @include desktop {
+        display: none;
+    }
+}
+
+.your-summary-container--mobile.active {
+    background: map-get( $color, white-dirty );
+    color: map-get( $color, green-mint );
+    top: $topOffset;
+}
+
+.your-summary-container--mobile .text {
+    margin-top: 6px;
+    font-weight: bold;
+}
+
+.your-summary-container--mobile .laquo-icon {
+    @include vendor-prefixed( transform, rotate(90deg));
+    @include font-size(24px);
+    @include vendor-prefixed( transition, all 300ms ease-in-out );
+}
+
+.your-summary-container--mobile.active .laquo-icon {
+    color: map-get( $color, green-mint );
+    @include vendor-prefixed( transform, rotate(270deg));
+}
+
+/* INDIVIDUAL SUMMARY ITEM */
+
+.summary-item {
+    @include mobile {
+        margin: 10px -15px;
+    }
+}
+
+.summary-name {
+    @include mobile {
+        @include font-size(13px);
+        color: map-get( $color, black-light );
+    }
+}
+
+.summary-name strong {
+    @include mobile {
+        font-weight: normal;
+    }
+}
+
+.summary-value {
+    @include mobile {
+        color: map-get( $color, gray-dark-3 );
+        font-weight: bold;
+        @include font-size(13px);
+    }
+}

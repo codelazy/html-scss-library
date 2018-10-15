@@ -1,0 +1,76 @@
+/*------------------------------------
+    LOADING PAGE PROVIDERS
+------------------------------------*/
+.loading-page-providers--container .loading-page-providers--header {
+    background-color: map-get( $color, dodger-blue );
+    padding: 20px 0;
+}
+
+.loading-page-providers--container .loading-page-providers--body {
+    margin: 40px 0 20px;
+} 
+
+.loading-page-providers--container .loading-page-providers--body .providers-logo--container {
+    @extend .clearfix;
+}
+
+.loading-page-providers--container .loading-page-providers--body .providers-logo--container ul {
+    list-style-type: none;
+    padding: 0;
+    margin:  0;
+    text-align: center;
+}
+
+.loading-page-providers--container .loading-page-providers--body .providers-logo--container ul li {
+    display: inline-block;
+    margin: 8px;
+    width: 120px;
+
+    
+    @media screen and (max-width: 365px) {
+        & {
+            width: 120px;
+            float: left;
+            display: block;    
+        }        
+
+        &:nth-child(even) {
+            float: right;
+        }
+    }
+
+}
+.loading-page-providers--container .loading-page-providers--body .providers-logo--container .provider-logo--box {
+    display: table;
+    width:  100%;
+    height: 100%;
+    border: 1px solid map-get( $color, gray-light-4 );
+    @include vendor-prefixed( transition, all 1s ease ); 
+
+    &.highlighted-provider {
+        border: 2px solid map-get( $color, dodger-blue );
+        @include vendor-prefixed( transform, scale(1.25) );
+        @include vendor-prefixed( transition, all 1s ease ); 
+    }
+
+}
+
+.loading-page-providers--container .loading-page-providers--body .providers-logo--container .provider-logo--box .provider-logo--image {
+    padding: 10px;    
+    display: table-cell;    
+    vertical-align: middle;
+    width: 120px;
+    height: 120px;
+}
+
+
+.loading-page-providers--container .loading-page-providers--body .providers-logo--container .provider-logo--box .provider-logo--image img {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+
+    @include desktop {
+        
+    }
+}

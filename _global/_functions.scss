@@ -1,0 +1,117 @@
+/*
+ *
+ *  CSS Name: FUNCTIONS
+ *  Description: All functions and mixins should be place here
+ *
+ */
+
+
+
+
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ *  OTHER FUNCTIONS OF SCSS:
+ *
+ *  The @at-root directive causes one or more rules to be emitted at the root of the document, rather than being nested beneath their parent selectors. It can either be used with a single inline selector:
+ *   ex:
+ *  .parent {
+ *     ...
+ *    @at-root .child { ... }
+ *  }
+ *  Which would produce:
+ *
+ *  .parent { ... }
+ *  .child { ... }
+ *
+ *  More info: http://sass-lang.com/documentation/file.SASS_REFERENCE.html#at-root
+ --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+/*-------------------------------------------------
+    CSS3 PROPERTY | VENDOR COMPATIBILITIES
+    By: Keiran Bowler
+--------------------------------------------------*/
+@mixin vendor-prefixed($name, $argument) {
+  -webkit-#{$name}: #{$argument};
+     -moz-#{$name}: #{$argument};
+      -ms-#{$name}: #{$argument};
+       -o-#{$name}: #{$argument};
+          #{$name}: #{$argument};
+}
+
+
+
+
+
+/*-------------------------------------------------
+    SET A REM FONT SIZE WITH PIXEL FALLBACK
+--------------------------------------------------*/
+@function calculateRem($size) {
+  $remSize: $size / 14px;
+  @return #{$remSize}rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size; //Fallback in px
+  font-size: calculateRem($size);
+}
+
+
+
+
+
+/*-------------------------------------------------------------------
+    USING CALC (MINUS ONLy)
+
+    Example
+
+		  SASS:  width: calculateCurrentScreenSize(100%, 80px);
+    CSS output:  width: calc(100% - 80px);
+
+
+	NOTE: If you use native calc implementation it will say:
+	      Error: Incompatible units: 'px' and '%' sass.
+---------------------------------------------------------------------*/
+@function calculateCurrentScreenSize($target, $container) {
+  @return calc(#{$target} - #{$container});
+}
+
+
+
+
+
+/*-------------------------------------------------
+    KEYFRAMES ANIMATIONS
+--------------------------------------------------*/
+@mixin keyframes( $animationName)
+{
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName}  {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+
+
+
+
+/*-------------------------------------------------
+    OVERRIDE PLACEHOLDER BEHAVIOR
+--------------------------------------------------*/
+@mixin placeholder {
+  :-moz-placeholder           {@content};
+  ::-moz-placeholder          {@content};
+  :-ms-input-placeholder      {@content};
+  ::-webkit-input-placeholder {@content};
+}

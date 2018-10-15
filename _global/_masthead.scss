@@ -1,0 +1,328 @@
+/*-------------------------------------------------------------------------------
+    TITLE:          MASTHEAD (RESULTS & FUNNEL PAGE)
+    DESCRIPTION:    The masthead on the top of the page containing both the
+
+    [1] MASTHEAD
+---------------------------------------------------------------------------------*/
+
+
+
+/*------------------------------------
+    [1] HEADER
+------------------------------------*/
+
+/**
+ *
+ *          HEADER
+ *
+ */
+.masthead {
+
+    background: map-get( $color, dodger-blue );
+    padding: 10px;
+    height: 60px;
+    line-height: 1.42857;
+    position: relative;
+
+
+    @include desktop {
+        &{
+            height: 75px;
+            padding:10px 15px;
+        }
+    }
+
+}
+
+/*------------------------------------
+    BURGER MENU
+------------------------------------*/
+.masthead__burger-menu {
+
+    @include font-size( 20px );
+    display: table-cell;
+    position: relative;
+    vertical-align: middle;
+
+
+    .m-cgg {
+        font-weight: bold;
+        font-size: inherit;
+    }
+
+
+    &, &:hover, &:focus {
+        color: map-get( $color, white );
+    }
+
+    @media screen and (min-width: 767px) {
+
+        & {
+            display: none;
+        }
+
+    }
+
+}
+
+.masthead__burger-menu .shape-circle {
+
+    background-color: map-get( $color, white );
+    width:  30px;
+    height: 30px;
+
+}
+
+.masthead__burger-menu i{
+
+    @include font-size( 7px );
+    color: map-get( $color, dodger-blue );
+
+}
+
+.masthead__burger-menu span {
+    display: block;
+    background: map-get( $color, white );
+    height: 3px;
+    margin-bottom: 3px;
+    border-radius: 1px;
+    min-width: 22px;
+}
+
+.masthead__burger-menu .masthead__burger-title {
+    background: none;
+    bottom: -3px;
+    font-size: 8px;
+    position: absolute;
+}
+
+/*------------------------------------
+    MASTHEAD LOGO
+------------------------------------*/
+
+
+/* LOGO & PHONE */
+.masthead__phone, .masthead__logo {
+    height: 100%;
+    display:table;
+}
+
+
+/*------------------------------------
+    BACK BUTTON
+------------------------------------*/
+.icon__arrow-back {
+
+    @include font-size( 20px );
+    display: table-cell;
+    vertical-align: middle;
+
+
+    .m-cgg {
+        font-weight: bold;
+        font-size: inherit;
+    }
+
+
+    &, &:hover, &:focus {
+        color: map-get( $color, white );
+    }
+
+    @media screen and (min-width: 767px) {
+
+        & {
+            display: none;
+        }
+
+    }
+
+}
+
+.icon__arrow-back .shape-circle {
+
+    background-color: map-get( $color, white );
+    width:  30px;
+    height: 30px;
+
+}
+
+.icon__arrow-back i{
+
+    @include font-size( 7px );
+    color: map-get( $color, dodger-blue );
+
+}
+
+
+
+/* ------------------------------
+  MASTHEAD RETURN PAGE
+--------------------------------*/
+
+.masthead .masthead__logo--return {
+    margin: -10px -15px;
+    height: 60px;
+    display: none;
+
+    @include desktop {
+        display: none;
+    }
+}
+
+.masthead .masthead__logo--return a {
+    height: inherit;
+    padding: 10px 15px 6px;
+    margin-right: 5px;
+    border-right: 1px solid map-get( $color, dodger-blue__dark-1 );
+
+}
+
+.masthead .masthead__logo--return a i {
+    @include font-size( 32px );
+    color: map-get( $color, white );
+}
+
+
+/*------------------------------------
+    LOGO
+------------------------------------*/
+.masthead__logo {
+    float: left;
+    margin: 5px 0;
+}
+
+.masthead__logo--default {
+    @include mobile {
+        & {
+            margin: 2px 0 0 5px;
+        }
+    }
+}
+
+.masthead__logo--link {
+    padding: 0 5px;
+    display: table-cell;
+    vertical-align: middle;
+
+    @include mobile {
+        position: relative;
+    }
+}
+
+.masthead__phone--link .masthead__phone--icon .shape-circle {
+    @include vendor-prefixed( transition, "background 300ms ease-in-out, color 300ms ease-in-out");
+}
+
+.masthead__phone--link:hover .masthead__phone--icon .shape-circle {
+    background: #fff;
+    color: #165072;
+}
+
+.masthead__logo--link img, .masthead__logo--link object {
+    max-width: 60%;
+
+
+    /* IE Hack */
+    @media all and(-ms-high-contrast:none) {
+        height: 100%;
+    }
+
+    @include desktop {
+        & {
+            max-width: 175px;
+        }
+    }
+
+    @include mobile {
+        & {
+            bottom: 23px;
+            left: 30px;
+            height: auto;
+            position: relative;
+            max-width: 120px;
+            width: 120px;
+        }
+    }
+
+}
+
+/*------------------------------------
+    MASTHEAD TITLE
+------------------------------------*/
+.masthead-title {
+    padding-left: 10px;
+}
+
+
+/*------------------------------------
+    PHONE
+------------------------------------*/
+.masthead__phone {
+    @include font-size( 14px );
+    float: right;
+
+    @include mobile {
+        & {
+            position: absolute;
+            right: 8px;
+            display: block;
+        }
+    }
+
+}
+
+.masthead__phone--link {
+    display: table-cell;
+    vertical-align: middle;
+
+    &, &:hover, &:focus {
+        color: map-get( $color, white );
+    }
+
+
+    @include mobile {
+        & {
+            padding: 7px 10px 10px 10px;
+            background: map-get( $color, green-dark );
+            @include vendor-prefixed( box-shadow, inset 0 -3px 0 0 map-get( $color, green-dark-1 ) );
+            @include vendor-prefixed( border-radius, 5px );
+            margin-top: 5px;
+        }
+    }
+
+
+}
+
+.masthead__phone--icon {
+    display: table-cell;
+    vertical-align: top;
+
+    @include mobile {
+        & { vertical-align: middle; }
+    }
+
+
+}
+
+.masthead__phone--number {
+    @include font-size( 18px );
+    font-weight: map-get( $font, weight--600 );
+    display: block;
+
+    @include mobile {
+        & {
+            @include font-size( 12px );
+            @include vendor-prefixed( text-shadow, 1px 1px 0 map-get( $color, green-dark-1 ) );
+        }
+    }
+
+}
+
+
+.masthead__phone--sched {
+
+    color: map-get( $color, sky-blue );
+    @include font-size( 10px );
+    font-weight: map-get( $font, weight--600 );
+
+}

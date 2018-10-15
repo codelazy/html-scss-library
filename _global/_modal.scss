@@ -1,0 +1,157 @@
+/*------------------------------------
+    HEADER 
+------------------------------------*/
+.modal {
+    background: rgba(0, 0, 0, .5);
+}
+
+.modal-layout-1 .modal-header {
+	border-color: transparent;
+	padding: 0 15px 5px;
+	@include desktop {
+	    @include vendor-prefixed( border-radius, 5px 5px 0 0 )
+	}
+}
+
+.modal-header .modal-container {
+    margin-top: 15px;
+}
+
+.modal-header .modal-container img {
+    float: left;
+    width: 25%;
+    
+    @include mobile {
+        display: none;
+    }
+}
+
+/* CLOSE BUTTON */
+.modal-layout-1 .btn-close {
+
+	background-color: transparent;
+	border-color:     transparent;
+	line-height: 10px;
+
+    border: 0;
+	padding-right: 0;
+   	margin-top: 5px;
+
+	@include vendor-prefixed( opacity, 1 )
+    
+    position: relative;
+    top: 13px;
+    right: -1px;
+    z-index: 99;
+    
+    @media (max-width: 480px) {
+        right: -15px;
+    }
+}
+
+.modal-layout-1 .btn-close span {	
+
+	@include font-size( 32px );
+
+}
+
+.modal-layout--thank-you .modal-header {
+    @include vendor-prefixed( border-radius, 5px 5px 0 0 )
+}
+
+.modal-layout--thank-you .modal-header, .order-form--popup-modal .modal-header {
+    background: map-get( $color, dodger-blue);
+	color: map-get( $color, white );
+}
+
+.modal-layout--thank-you .btn-close, .order-form--popup-modal .btn-close {
+	color: map-get( $color, white );
+}
+
+.modal-layout--thank-you .btn-close {
+    top: 13px;
+}
+
+.order-form--popup-modal .btn-close {
+    top: 25px;
+}
+
+
+
+/*------------------------------------
+    HEADER TITLE
+------------------------------------*/
+.modal-layout-1 .modal-title {
+	font-weight: bold;
+	margin-top: 30px;
+	margin: 0 auto;	
+
+	@include font-size( 18px );	
+
+
+	@media (max-width: 767px) {		
+        @include font-size( 20px );
+    }
+
+    @media (max-width: 440px) {
+        @include font-size( 14px );
+    }
+
+}
+
+.modal-layout--thank-you .modal-title, .order-form--popup-modal .modal-title {
+    margin: 0 0 10px 0;
+    max-width: none;
+}
+
+.order-form--popup-modal .modal-container p {
+    color: map-get( $color, white );
+    
+    @include mobile {
+        display: none;
+    }
+}
+
+.mobile--header-title {
+    text-align: right;
+    width: 83.3333%;
+}
+
+.mobile--header-title img {
+    padding-right: 15px;
+    height: 25px;
+    width: auto;
+    
+    @include desktop {
+        display: none;
+    }
+}
+
+/*------------------------------------
+    BODY
+------------------------------------*/
+.modal-layout-1 .modal-body {
+	@include font-size( 14px );		
+}
+
+.modal-body h4 {
+    color: map-get( $color, grey-dark );
+}
+
+
+
+
+
+/*------------------------------------
+    FOOTER
+------------------------------------*/
+.modal-layout-1 .modal-footer {
+
+	text-align: left;
+	border-color: transparent;
+	margin-bottom: 30px;
+}
+
+.modal-layout-1 .modal-footer .btn-global {
+	@include font-size( 12px );	
+}

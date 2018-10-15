@@ -1,0 +1,196 @@
+/*-------------------------------------------------------------------------------
+    TITLE:          HEADER (RESULTS PAGE) 
+    DESCRIPTION:    This will be shared by anyone who uses the result template
+
+    [1] HEADER
+---------------------------------------------------------------------------------*/
+
+
+
+/*------------------------------------
+    [1] HEADER
+------------------------------------*/
+
+.header {
+    background-color: map-get( $color, dodger-blue__dark );
+    
+    @include mobile {
+        & {
+            background-color: map-get( $color, white-dirty );
+        }
+    }
+}
+
+.header .container {
+    @include mobile {
+        background: map-get( $color, white );
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.header-container {
+    @include mobile {
+        background: map-get( $color, white-dirty );
+        padding: 0 15px;
+    }
+}
+
+.header__results {
+
+    @include desktop {
+
+
+
+        & {
+            padding: 15px 0;
+            background-color: map-get( $color, dodger-blue__dark );
+            color: map-get( $color, white );
+        }
+    }
+    
+    @include mobile {
+        & {
+            background-color: map-get( $color, white-dirty );
+        }
+    }
+}
+
+.header__promise {
+    @include mobile {
+        display: none;
+    }
+}
+
+.header__results .current-page__title {
+
+    @include font-size( 18px );
+    color: map-get( $color, sky-blue-2 );
+}
+
+.header__results .current-page__title strong {
+    color: map-get( $color, white );
+    
+    @include mobile {
+        & {
+            color: map-get( $color, black-light );
+        }
+    }
+}
+
+.header__results .current-page .cgg-col-xs-12{
+    padding: 0;
+}
+
+.header__results .results-hyphen {
+    @include mobile {
+        & {
+            display: none;
+        }
+    }
+}
+
+.header__results .current-page__title .show-total-results {
+
+    color: map-get( $color, sky-blue-2 );
+    
+    @include mobile {
+        & {
+            display: block;
+            color: map-get( $color, black-light );
+        }
+    }
+}
+
+.header__results  .current-page__desc { 
+    @include font-size( 11px ); 
+    
+    @include mobile {
+        display: none;
+    }
+}
+
+.header__results .current-page__title-mobile {
+    margin: 10px 0;
+    display: table;
+    width: 100%;
+
+    @include desktop {
+        display: none;
+    }
+}
+
+.header__results .current-page__title-mobile .display-cell {
+    width: 100%;
+    vertical-align: top;    
+}
+
+.header__results .current-page__title-mobile .header-user--edit {
+
+    width: 40px;
+    height: 40px;
+    float: right;
+    position: relative;
+
+    @include desktop {
+        display: none;
+    }
+}
+
+.header__results .current-page__title-mobile .header-user--edit .m-cgg-icon {
+    @include font-size( 26px );
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    left: 5px;
+    margin: 0 auto;
+    width: 30px;
+    height: 30px;
+
+
+}
+
+/* moble header text (your quotes) */
+.masthead-title {
+
+    color: map-get( $color, white );
+    @include font-size( 14px );
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.icon__arrow-back i {
+    color: map-get( $color, white );
+}
+
+.refine-button {
+    @include mobile {
+        background: map-get( $color, white );
+        padding: 0 15px;
+    }
+}
+
+.refine-button .btn {
+    margin: 15px 0;
+    padding: 5px 10px 10px 10px;
+    border-color: map-get( $color, gray-dark-2 );
+}
+
+.refine-button i {
+    padding-right: 5px;
+    text-align: right;
+    color: map-get( $color, gray-dark-2 );
+    @include font-size( 18px );
+    position: relative;
+    top: 3px;
+}
+
+.refine-button span {
+    color: map-get( $color, black-light );
+    @include font-size( 14px );
+    padding-left: 5px;
+    text-align: left;
+}
+
+

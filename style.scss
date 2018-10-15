@@ -1,0 +1,89 @@
+/**
+ * ------------------------
+ *
+ *      CSS Name:  STYLE.CSS
+ *   Description:  RESULTS WIDGET PAGE CSS
+ *  Date Started:  03.01.2016
+ * 
+ * --------------------------
+ */
+
+
+
+
+
+/*------------------------------------
+    RESULT BODY SORTING VIEW
+------------------------------------*/
+.result-body .btn--orange {
+    margin-top: 10px;
+    height: auto;
+    padding: 10px;
+
+    @include font-size( 18px );
+
+}
+
+
+
+
+
+/*---------------------------------------------------
+    CHANGE MOBILE BREAK POINT FOR RESULTS PAGE ONLY
+----------------------------------------------------*/
+@mixin breakpoint($point) {
+    @if $point == mobile {
+        @media (max-width: (768px)) { @content; }
+    }
+}
+.container {
+
+    @media screen and (max-width: 991px) {
+
+        & {
+            width: 100%;
+            padding-right: 25px;
+            padding-left:  25px;
+        }
+    }
+
+    @include mobile {
+        padding-right: 15px;
+        padding-left:  15px;
+    }
+}
+
+
+
+
+
+/*------------------------------------
+    ROOT WRAPPER .telco-widget
+------------------------------------*/
+@at-root body .cgg-comparison-widget {
+    background: map-get( $color, white-dirty );    
+}
+
+
+
+
+
+/*------------------------------------
+    RESULT BODY
+------------------------------------*/
+.result-body {
+
+    @include desktop {
+        & {
+            width: 100%;
+        }
+    }
+}
+
+.result-body .container {
+    @include desktop {
+        & {
+            display: table;
+        }
+    }
+}

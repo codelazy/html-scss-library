@@ -1,0 +1,45 @@
+/*------------------------------------
+    PRICE CALCULATION POPOVER 
+------------------------------------*/
+
+$popoverWidth : 300;
+
+.provider-list-container .monthy-repayments-value-container .popover {
+    border: 3px solid map-get( $color, sky-blue-3 );
+    @include vendor-prefixed( border-radius, 0 );
+    @include vendor-prefixed( box-shadow, none );
+    color: map-get( $color, black-1 );
+    font-family: map-get( $font, family--proxima );
+    left: -#{$popoverWidth}px;
+    width: #{$popoverWidth}px !important;
+    max-width: #{$popoverWidth}px !important;
+    z-index: 1;
+
+    h3 {
+        @include font-size(13px);
+        font-weight: bold;
+        margin-right: 15px;
+        margin-top: 0;
+    }
+    
+    .arrow {
+        border-left-color: map-get( $color, sky-blue-3 );
+        
+        &::after {
+            right: 4px;
+        }
+    }
+    
+    .popover-content {
+        margin-bottom: 15px;
+        position: relative;
+    }
+    
+    .close {
+        @include font-size(34px);
+        font-weight: 900;
+        position: absolute;
+        right: 14px;
+        top: 0;
+    }
+}

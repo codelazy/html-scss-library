@@ -1,0 +1,25 @@
+/*-------------------------------------------------------------------------------
+    TITLE:			RANGE SLIDER JS
+	DESCRIPTION:	A third party.
+---------------------------------------------------------------------------------*/
+.rangeslider { 
+	background: map-get( $color, gray-light-6 ); 
+	@include vendor-prefixed( box-shadow, 0 0 0 transparent );	
+	height: 6px;
+}            
+
+.rangeslider__handle { 
+	background-color: map-get( $color, green-dark-2 ); 
+	@include vendor-prefixed( box-shadow, 0 0 0 transparent );	
+	width: 25px; 
+	height: 25px;
+}
+
+.rangeslider__handle:after { 
+	background-image: none;  
+}
+
+.rangeslider__fill {
+	background-color: map-get( $color, green-light-1 ); 
+	@include vendor-prefixed( box-shadow, 0 0 0 transparent );	
+}

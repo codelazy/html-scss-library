@@ -1,0 +1,30 @@
+/*
+ *
+ * Bootstrap Sass
+ */
+
+.telco-widget {
+    @import "_global/_bootstrap_selection.scss";
+    @import "_global/_vendor.scss";
+    @import "_global/_colors.scss";
+    @import "_global/_z-index.scss";
+    @import "_global/_functions.scss";
+    @import "_global/_loading-provider-page.scss";
+    @import "_global/_buttons.scss";
+    @import "_global/_cag_custom_components.scss";
+    @import "_global/_animation.scss";
+    @import "_global/_masthead.scss";
+    @import "_global/_modal.scss";
+    @import "_funnel/_nav-bar-progress.scss";
+    @import "_funnel/_question-provider-listing.scss";
+    @import "_global/_global-loader.scss";
+    @import "_funnel/_funnel.scss";
+    @import "_funnel/_footer.scss";
+    @import "_funnel/_your-summary.scss";
+    @import "_global/_sidebar.scss";
+    @import "style.scss";
+    @import "shame.scss";
+    @import "_funnel/_error-page.scss";
+}
+
+@import "../components/iconia-cgg-icomoon/CGG-icomoon/cgg-style.scss";

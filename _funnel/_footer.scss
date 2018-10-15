@@ -1,0 +1,69 @@
+/**
+ * ------------------------
+ *
+ *     CSS Name: FOOTER FUNNEL 
+ *  Description: 
+ * 
+ * --------------------------
+ */
+
+
+
+.funnel-action-view {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 53px;
+
+    @include desktop {
+        position: relative;
+        bottom: 0;
+    }
+}
+
+.funnel-action-view .form-actions {
+    @include mobile {
+        margin: 0;	
+    }
+}
+
+.funnel-action-view .mobile-link-container {
+    background-color: map-get( $color, orange );
+    padding: 10px 15px;
+    text-align: right;
+    width: 100%;
+    height: 58px;
+
+    @include desktop {
+        display: none;
+    }
+}
+
+.funnel-action-view .mobile-link-container[data-step-id="5"] .next-link--mobile {
+    bottom: 11px;
+    position: relative;
+}
+
+.funnel-action-view .mobile-link-container .next-link--mobile:hover {
+    color: map-get( $color, white );
+}
+
+.funnel-action-view .mobile-link-container .next-link--mobile span {
+    margin-right: 24px;
+    @include font-size( 11px );
+}
+
+.funnel-action-view .mobile-link-container .next-link--mobile i{
+    background-color: map-get( $color, white );
+    color: map-get( $color, orange );
+    @include font-size (9px);
+    @include vendor-prefixed(border-radius, 20px);
+    padding: 3px 0 0 1px;
+    font-weight: 800;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin-left: 4px;
+    position: relative;
+    top: -1px;
+}

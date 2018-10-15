@@ -1,0 +1,337 @@
+/*------------------------------------
+    HEADER 
+------------------------------------*/
+@at-root {
+    .modal-open {
+        overflow: hidden;
+    }
+}
+
+.modal.fade.in {
+    overflow: auto !important;
+}
+
+.modal {
+    background: rgba(0, 0, 0, .5);
+}
+
+.modal-layout-1 .modal-header {
+    border-color: transparent;
+    padding: 0 15px 5px;
+    @include desktop {
+        @include vendor-prefixed( border-radius, 5px 5px 0 0 )
+    }
+}
+
+.modal-header .modal-container {
+    margin-top: 15px;
+}
+
+.modal-header .modal-container img {
+    float: left;
+    width: 25%;
+
+    @include mobile {
+        display: none;
+    }
+}
+
+/* CLOSE BUTTON */
+.modal-layout-1 .btn-close {
+
+    background-color: transparent;
+    border-color:     transparent;
+    line-height: 10px;
+
+    border: 0;
+    padding-right: 0;
+    margin-top: 5px;
+
+    @include vendor-prefixed( opacity, 1 )
+
+    position: relative;
+    top: 13px;
+    right: -1px;
+    z-index: 99;
+
+    @media (max-width: 480px) {
+        right: -15px;
+    }
+}
+
+.modal-layout-1 .btn-close span {	
+
+    @include font-size( 32px );
+
+}
+
+/*------------------------------------
+    HEADER TITLE
+------------------------------------*/
+.modal-layout-1 .modal-title {
+    font-weight: bold;
+    margin-top: 30px;
+    margin: 0 auto;	
+
+    @include font-size( 18px );	
+
+
+    @media (max-width: 767px) {		
+        @include font-size( 20px );
+    }
+
+    @media (max-width: 440px) {
+        @include font-size( 14px );
+    }
+
+}
+
+.mobile--header-title {
+    text-align: right;
+    width: 83.3333%;
+}
+
+.mobile--header-title img {
+    padding-right: 15px;
+    height: 25px;
+    width: auto;
+
+    @include desktop {
+        display: none;
+    }
+}
+
+/*------------------------------------
+    BODY
+------------------------------------*/
+.modal-layout-1 .modal-body {
+    @include font-size( 14px );		
+}
+
+.modal-body h4 {
+    color: map-get( $color, grey-dark );
+}
+
+
+
+
+
+/*------------------------------------
+    FOOTER
+------------------------------------*/
+.modal-layout-1 .modal-footer {
+
+    text-align: left;
+    border-color: transparent;
+    margin-bottom: 30px;
+}
+
+.modal-layout-1 .modal-footer .btn-global {
+    @include font-size( 12px );	
+}
+
+/*------------------------------------
+    REFINE INPUT FOR MOBILE VIEW POP UP MODAL
+------------------------------------*/
+.refine-form--mobile {
+    text-align: center;
+}
+
+.refine-form--mobile .modal-dialog {
+    margin-top: 75px;
+}
+
+.refine-form--mobile  .modal-title {
+    font-weight: bold;
+    color: map-get( $color, black-light );
+    text-align: left;
+}
+
+.refine-form--mobile .refine-form--mobile-input-text {
+    border: none;
+    border-bottom: 2px solid map-get( $color, green-dark );
+    box-shadow: none;
+    @include font-size( 20px );
+    width: 100%;
+
+}
+
+.refine-form--mobile .modal-footer {
+    text-align: right;
+    color: map-get( $color, orange );
+    margin-bottom: 10px;
+}
+.refine-form--mobile .modal-footer a {
+    color: map-get( $color, orange );
+    margin-right: 20px;
+}
+
+
+.refine-form--mobile .btn-container--white {
+    /* padding-left:     0;
+    padding-right: 10px; */
+    border: none;
+    display: block;
+
+    @include desktop {
+        border: 1px solid map-get( $color, gray-light-1 );
+        display: table-cell;        
+
+    }
+
+    @include mobile {
+        background: none;
+        cursor: default;
+        padding: 0;
+
+        color: map-get( $color, black-light );
+
+        &:hover {
+            background-color: transparent;
+            box-shadow: transparent;
+            background-color: transparent;
+        }
+
+        &.has-selected {
+            background: 0;
+            border: none;
+            @include vendor-prefixed( box-shadow, none );
+        }
+
+        & .display-cell {
+            vertical-align: middle;
+        }
+    }
+
+}
+
+
+.refine-form--mobile  .modal-dialog .modal-body {
+    max-height: 400px;
+    overflow-y: scroll;
+
+    &.has-scroll {
+        @include vendor-prefixed( box-shadow, 0 0 4px map-get( $color, black-1 ) );
+    }
+}
+
+
+/*------------------------------------
+    THANK YOU MODAL OVERLAY
+------------------------------------*/
+.modal-layout--thank-you .modal-header {
+    @include vendor-prefixed( border-radius, 5px 5px 0 0 )
+}
+
+.modal-layout--thank-you .modal-header, .order-form--popup-modal .modal-header {
+    background: map-get( $color, dodger-blue);
+    color: map-get( $color, white );
+}
+
+.modal-layout--thank-you .btn-close, .order-form--popup-modal .btn-close {
+    color: map-get( $color, white );
+}
+
+.modal-layout--thank-you .btn-close {
+    top: 0;
+    
+    @include mobile {
+        margin-top: 0;
+        right: -7px;
+    }
+}
+
+.modal-layout--thank-you .modal-title, .order-form--popup-modal .modal-title {
+    margin: 0 0 10px 0;
+    max-width: none;
+}
+
+.modal-layout--thank-you .modal-header img {
+    width: 30%;
+}
+
+.modal-layout--thank-you .modal-title {
+    color: map-get( $color, gray-dark);
+    margin-top: 10px;
+}
+
+.modal-layout--thank-you .thankyou_description {
+    color: map-get( $color, gray-dark-3 );
+}
+
+.modal-layout--thank-you .modal-header h4 {
+    padding-left: 38px;
+    text-align: center;
+}
+
+.modal-layout--thank-you .modal-body {
+    margin: 15px 0;
+}
+
+.modal-layout--thank-you .modal-body .display-cell {
+    vertical-align: top;
+}
+
+.modal-layout--thank-you .thankyou-check-icon {
+    @include vendor-prefixed( border-radius, 80px );
+    border: 2px solid map-get( $color, green-light );
+    width: 80px;
+    height: 80px;	
+    display: block;
+    float: left;
+    @include font-size( 100px );
+    margin-right: 20px;
+}
+
+.modal-layout--thank-you .thankyou-check-icon i.m-cgg {
+    color: map-get( $color, green-dark-2 );		
+    top:  -25px;
+    left: -18px;
+    position: relative;
+    display: block;
+}
+
+.modal-layout--thank-you .modal-footer {
+    background-color: map-get( $color, white-dirty );
+    margin-bottom: 0;
+    @include vendor-prefixed( border-radius, 0 0 5px 5px );
+    font-weight: 800;
+    @include font-size( 11px );
+}
+
+.modal-layout--thank-you .social-link--container {
+    margin: 10px auto;
+    display: table;
+    @extend .clearfix;
+}
+
+.modal-layout--thank-you .social-link--container .social-link {
+    @include vendor-prefixed( border-radius, 40px );
+    width:  40px;
+    height: 40px;
+    display: block;
+    float: left;
+    margin-right: 20px;
+    background-color: map-get( $color, dodger-blue-2 );	
+    color: map-get( $color, white );
+    @include font-size( 20px );
+    display: table;
+
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+.modal-layout--thank-you .social-link--container .social-link i {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.modal-layout--thank-you .modal-container  .display-table--thank-you {
+    margin: 0 auto;
+}
+
+.modal-layout--thank-you .modal-container  .display-table--thank-you .display-cell {
+    vertical-align: middle;
+}
